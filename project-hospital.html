@@ -89,64 +89,108 @@
             width: 100%; max-width: 100%; background: #1C1C1E; border-radius: 12px;
             border: 1px solid #3A3A3C; font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
             color: #FFFFFF; display: flex; flex-direction: column; overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); min-width: 0;
           }
           .db-titlebar {
             background: #2C2C2E; height: 44px; display: flex; align-items: center;
             padding: 0 16px; border-bottom: 1px solid #3A3A3C; position: relative;
+            flex-shrink: 0; min-width: 0;
           }
           .db-dots { display: flex; gap: 8px; }
           .db-dot { width: 12px; height: 12px; border-radius: 50%; }
           .db-dot.r { background: #FF5F56; } .db-dot.y { background: #FFBD2E; } .db-dot.g { background: #27C93F; }
-          .db-title { position: absolute; left: 50%; transform: translateX(-50%); font-family: monospace; font-size: 13px; color: #8E8E93; }
-          .db-body { display: flex; flex-direction: row; height: 500px; width: 100%; }
+          .db-title { position: absolute; left: 50%; transform: translateX(-50%); font-family: monospace; font-size: 13px; color: #8E8E93; white-space: nowrap; }
+          .db-body { display: flex; flex-direction: row; height: 500px; width: 100%; min-width: 0; }
           .db-sidebar {
             width: 180px; flex-shrink: 0; background: #242426; border-right: 1px solid #3A3A3C;
-            display: flex; flex-direction: column; overflow-y: auto; padding: 12px 0;
+            display: flex; flex-direction: column; overflow-y: auto; padding: 12px 0; min-width: 0;
           }
           .db-table-btn {
             display: flex; align-items: center; justify-content: space-between;
             padding: 10px 16px; cursor: none; background: transparent; border: none;
             color: #8E8E93; font-family: monospace; font-size: 13px; text-align: left;
-            transition: all 0.2s; border-left: 2px solid transparent; outline: none;
+            transition: all 0.2s; border-left: 2px solid transparent; outline: none; flex-shrink: 0;
           }
           .db-table-btn:hover, .db-table-btn:focus { background: rgba(255, 255, 255, 0.05); color: #FFFFFF; }
           .db-table-btn.active { background: rgba(10, 132, 255, 0.15); color: #FFFFFF; border-left: 2px solid #0A84FF; }
           .db-table-btn-left { display: flex; align-items: center; gap: 8px; }
-          .db-table-icon { width: 14px; height: 14px; opacity: 0.7; fill: none; stroke: currentColor; stroke-width: 2; }
+          .db-table-icon { width: 14px; height: 14px; opacity: 0.7; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
           .db-main { flex: 1; display: flex; flex-direction: column; background: #1C1C1E; overflow-y: auto; overflow-x: hidden; padding: 24px; min-width: 0; }
-          .db-query { font-family: monospace; font-size: 14px; padding-bottom: 20px; border-bottom: 1px solid #3A3A3C; margin-bottom: 24px; word-break: break-all; }
+          .db-query { font-family: monospace; font-size: 14px; padding-bottom: 20px; border-bottom: 1px solid #3A3A3C; margin-bottom: 24px; word-break: break-all; min-width: 0; }
           .db-keyword { color: #0A84FF; }
           .db-target-btn { background: transparent; border: none; padding: 0; font: inherit; color: #BF5AF2; cursor: none; transition: color 0.2s; outline: none; }
           .db-target-btn:hover, .db-target-btn:focus { color: #FFFFFF; text-decoration: underline; }
-          .db-section-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #8E8E93; margin-bottom: 12px; font-weight: 600; }
-          .db-cols { display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px; width: 100%; }
-          .db-col-row { display: flex; align-items: center; font-family: monospace; font-size: 13px; padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); width: 100%; }
-          .db-col-name { width: 140px; color: #FFFFFF; flex-shrink: 0; } .db-col-type { width: 90px; color: #8E8E93; flex-shrink: 0; }
-          .db-badge { padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-left: auto; white-space: nowrap; }
+          .db-section-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #8E8E93; margin-bottom: 12px; font-weight: 600; min-width: 0; }
+          .db-cols { display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px; width: 100%; min-width: 0; }
+          .db-col-row { display: flex; align-items: center; font-family: monospace; font-size: 13px; padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); width: 100%; min-width: 0; }
+          .db-col-name { width: 140px; color: #FFFFFF; flex-shrink: 0; word-break: break-all; } .db-col-type { width: 90px; color: #8E8E93; flex-shrink: 0; }
+          .db-badge { padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-left: auto; white-space: nowrap; flex-shrink: 0; }
           .db-badge.pk { background: rgba(10, 132, 255, 0.2); color: #0A84FF; }
           button.db-badge.fk { background: rgba(191, 90, 242, 0.2); color: #BF5AF2; cursor: none; transition: background 0.2s; border: none; font-family: inherit; line-height: inherit; outline: none; }
           button.db-badge.fk:hover, button.db-badge.fk:focus { background: rgba(191, 90, 242, 0.35); }
-          .db-samples { margin-bottom: 32px; overflow-x: auto; border-radius: 8px; border: 1px solid #3A3A3C; max-width: 100%; -webkit-overflow-scrolling: touch; }
+          .db-samples { margin-bottom: 32px; overflow-x: auto; border-radius: 8px; border: 1px solid #3A3A3C; width: 100%; max-width: 100%; -webkit-overflow-scrolling: touch; min-width: 0; }
           .db-table { width: 100%; min-width: 480px; border-collapse: collapse; table-layout: fixed; font-family: monospace; font-size: 13px; }
           .db-table th, .db-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #3A3A3C; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
           .db-table tr:last-child td { border-bottom: none; }
           .db-table th { color: #8E8E93; font-weight: 400; border-bottom: 1px solid #3A3A3C; background: rgba(255,255,255,0.02); }
           .db-table td { color: #FFFFFF; }
-          .db-rels { font-family: monospace; font-size: 13px; color: #8E8E93; line-height: 1.6; }
+          .db-rels { font-family: monospace; font-size: 13px; color: #8E8E93; line-height: 1.6; min-width: 0; }
           .db-rels-list { list-style: none; padding: 0; margin: 0; }
           .db-rels-list li::before { content: "•"; color: #3A3A3C; margin-right: 8px; }
+          
+          /* YENİ SIFIRDAN MOBİL TASARIM */
           @media(max-width: 768px) {
-            .db-body { flex-direction: column; height: auto; min-height: 500px; }
-            .db-sidebar { width: 100%; height: 60px; flex-direction: row; overflow-x: auto; overflow-y: hidden; border-right: none; border-bottom: 1px solid #3A3A3C; padding: 0; }
-            .db-table-btn { border-left: none; border-bottom: 2px solid transparent; white-space: nowrap; height: 100%; padding: 0 20px; }
-            .db-table-btn.active { border-left: none; border-bottom: 2px solid #0A84FF; }
+            .db-body { flex-direction: column; height: auto; min-height: unset; }
+            
+            /* Yan Yana Butonlar Yerine Hap (Pill) Tasarımı */
+            .db-sidebar { 
+              width: 100%; height: auto; flex-direction: row; flex-wrap: wrap; 
+              overflow: visible; border-right: none; border-bottom: 1px solid #3A3A3C; 
+              padding: 16px; gap: 8px; 
+            }
+            .db-table-btn { 
+              border: 1px solid #3A3A3C; border-radius: 8px; white-space: nowrap; 
+              height: auto; padding: 8px 14px; background: rgba(255,255,255,0.03);
+              flex: 1 1 auto; justify-content: center;
+            }
+            .db-table-btn.active { 
+              border: 1px solid #0A84FF; background: rgba(10, 132, 255, 0.1); 
+            }
+            .db-table-btn-left { font-size: 13px; justify-content: center; }
+            .db-table-icon { display: none; }
             .db-count { display: none; }
-            .db-main { padding: 16px; }
-            .db-col-row { flex-wrap: wrap; gap: 8px; }
-            .db-col-name { width: 100%; flex-shrink: 1; }
-            .db-badge { margin-left: 0; }
-            .db-table { min-width: 350px; font-size: 12px; }
+            
+            .db-main { padding: 16px; overflow: visible; }
+            .db-query { font-size: 12px; padding-bottom: 12px; margin-bottom: 20px; line-height: 1.5; }
+            
+            /* Sütunlar için Grid Tasarım (Asla taşmaz) */
+            .db-col-row { 
+              display: grid; grid-template-columns: 1fr auto; 
+              grid-template-areas: "name badge" "type badge"; 
+              gap: 4px; padding: 12px; align-items: center; 
+            }
+            .db-col-name { grid-area: name; width: auto; font-size: 13px; }
+            .db-col-type { grid-area: type; width: auto; font-size: 11px; }
+            .db-badge { grid-area: badge; margin: 0; }
+            
+            /* Tablo Yerine Kart Görünümü (Responsive Table) */
+            .db-samples { border: none; background: transparent; overflow: visible; margin-bottom: 24px; padding: 0; }
+            .db-table, .db-table tbody, .db-table th, .db-table td, .db-table tr { display: block; width: 100%; min-width: 0; }
+            .db-table thead { display: none; }
+            .db-table tr { border: 1px solid #3A3A3C; border-radius: 10px; margin-bottom: 12px; background: rgba(255,255,255,0.02); overflow: hidden; }
+            .db-table td { 
+              border: none; border-bottom: 1px solid rgba(255,255,255,0.05); 
+              padding: 10px 12px 10px 45%; position: relative; 
+              white-space: normal; word-break: break-word; font-size: 13px;
+            }
+            .db-table td:last-child { border-bottom: none; }
+            .db-table td::before { 
+              content: attr(data-label); position: absolute; left: 12px; top: 10px; 
+              width: 35%; color: #8E8E93; font-size: 12px; white-space: nowrap; 
+              overflow: hidden; text-overflow: ellipsis;
+            }
+            
+            .db-rels-list li { margin-bottom: 10px; line-height: 1.5; word-break: break-word; }
           }
         </style>
 
@@ -214,7 +258,7 @@
             }).join('');
             const displayCols = data.columns.slice(0, 4);
             document.getElementById('db-table-head').innerHTML = `<tr>${displayCols.map(c => `<th>${c.name}</th>`).join('')}</tr>`;
-            document.getElementById('db-table-body').innerHTML = data.samples.map(row => `<tr>${row.slice(0, 4).map(val => `<td>${val}</td>`).join('')}</tr>`).join('');
+            document.getElementById('db-table-body').innerHTML = data.samples.map(row => `<tr>${row.slice(0, 4).map((val, i) => `<td data-label="${displayCols[i].name}">${val}</td>`).join('')}</tr>`).join('');
             document.getElementById('db-rels').innerHTML = data.relationships.map(rel => {
               let res = rel.text;
               rel.links.forEach((link, i) => {
