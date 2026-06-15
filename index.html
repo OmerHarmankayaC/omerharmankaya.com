@@ -1,16 +1,298 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ömer Harmankaya - Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ömer Harmankaya — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+  <div class="cursor-follower" id="cursor"></div>
+
+  <header class="topbar-carl">
+    <div class="nav-links">
+      <a href="#about"><span class="tr">Hakkımda</span><span class="en">About</span></a>
+      <a href="#work"><span class="tr">İşler</span><span class="en">Work</span></a>
+      <a href="#contact"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+      <button id="lang-toggle" class="lang-toggle">ENGLISH</button>
+    </div>
+    <div class="mobile-topbar">
+      <span class="mobile-logo">ÖH</span>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu-overlay" id="mobile-menu">
+    <div class="mobile-menu-content">
+      <a href="#about" class="mobile-nav-link"><span class="tr">Hakkımda</span><span class="en">About</span></a>
+      <a href="#work" class="mobile-nav-link"><span class="tr">İşler</span><span class="en">Work</span></a>
+      <a href="#contact" class="mobile-nav-link"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+      <button class="lang-toggle mobile-lang-toggle">ENGLISH</button>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top" style="overflow: hidden;">
+      <div class="wrap" style="text-align: center; display: flex; justify-content: center;">
+        <h1 class="reveal d1" style="font-size: clamp(3rem, 11vw, 12.5rem); line-height: 1; margin: 0; letter-spacing: -0.05em; padding-bottom: 40px; margin-right: -0.05em; word-break: break-word;">Ömer Harmankaya</h1>
+      </div>
+    </section>
+
+    <!-- FULL WIDTH IMAGE -->
+    <section class="scroll-reveal" style="width: 100vw; margin-left: calc(-50vw + 50%); margin-bottom: clamp(60px, 12vh, 120px);">
+      <img src="ara_resim/Columbia_River.JPG" style="width: 100%; height: auto; display: block;" alt="Columbia River" loading="lazy" decoding="async">
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about-section">
+      <div class="wrap sec about">
+        <div class="sec-head">
+          <div class="label"><span class="tr">Kim</span><span class="en">Who</span></div>
+          <div>
+            <p class="tr">Kod yazmaktan çok, bir şeyin nasıl kurulacağına karar verip onu çalışır hâle getirmeyi seviyorum.</p>
+            <p class="en">I'm less interested in writing the code than in deciding how something should be built — and then getting it to actually work.</p>
+            
+            <p class="col2 tr">Ankara'da büyüdüm, TED Üniversitesi'nde okuyorum. Endüstri mühendisliği tarafı bana giderek daha yakın geliyor — işin gerçek dünyada çalışan kısmı. Henüz yolun başındayım; bu site de o yolun şu ana kadarki hâli.</p>
+            <p class="col2 en">I grew up in Ankara and study at TED University. Industrial engineering is the side that keeps drawing me in — the part where things have to hold up in the real world. I'm still early on; this site is where that road stands so far.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="works-section">
+      <div class="wrap sec">
+        <div class="label section-label"><span class="tr">Seçili İşler</span><span class="en">Selected Work</span></div>
+
+        <!-- Project 1 -->
+        <a href="project-vera.html" class="project-block reveal scroll-reveal">
+            <div class="project-info">
+                <h3>Vera-Finance</h3>
+                <div class="tags"><span class="tr">Fintech · iOS · 2025</span><span class="en">Fintech · iOS · 2025</span></div>
+                <p class="desc tr">App Store'da yayında bir kişisel finans uygulaması. Yapay zekâ ile fatura okuma, stok takibi ve bütçe yönetimi. Ürün yönünü ve sistem kurgusunu ben yönettim.</p>
+                <p class="desc en">A personal finance app, live on the App Store. AI-based receipt reading, stock tracking, and budgeting. I led the product direction and the system behind it.</p>
+                <span class="view-details"><span class="tr">Projeyi İncele ↗</span><span class="en">View Project ↗</span></span>
+            </div>
+            <div class="project-images">
+                <img src="proje_resim/vera/Feature-image_vera.jpg" alt="Vera Finance" loading="lazy" decoding="async">
+            </div>
+        </a>
+
+        <!-- Project 2 -->
+        <a href="project-ieee.html" class="project-block reveal scroll-reveal">
+            <div class="project-info">
+                <h3>IEEE TEDU</h3>
+                <div class="tags"><span class="tr">Web · Canlı · 2026</span><span class="en">Web · Live · 2026</span></div>
+                <p class="desc tr">TED Üniversitesi IEEE öğrenci kolu için çok sayfalı, blog'lu bir web sitesi. Tasarımdan deploy'a kadar kuruldu ve şu an canlı yayında.</p>
+                <p class="desc en">A multi-page site with a blog for TED University's IEEE student branch. Built from design through deployment, and currently live.</p>
+                <span class="view-details"><span class="tr">Projeyi İncele ↗</span><span class="en">View Project ↗</span></span>
+            </div>
+            <div class="project-images">
+                <img src="proje_resim/ieee/ieee_mockup_1.png" alt="IEEE Mockup" loading="lazy" decoding="async">
+            </div>
+        </a>
+
+        <!-- Project 3 -->
+        <a href="project-roomerang.html" class="project-block reveal scroll-reveal">
+            <div class="project-info">
+                <h3>Roomerang</h3>
+                <div class="tags"><span class="tr">Tasarım · 2026</span><span class="en">Design · 2026</span></div>
+                <p class="desc tr">SENG 214 dersi için beş kişilik bir ekiple tasarladığımız otel rezervasyon sistemi. Tasarım ve dokümantasyon tarafını ben üstlendim.</p>
+                <p class="desc en">A hotel reservation system designed with a five-person team for a software engineering course. I handled the design and documentation.</p>
+                <span class="view-details"><span class="tr">Projeyi İncele ↗</span><span class="en">View Project ↗</span></span>
+            </div>
+            <div class="project-images">
+                <img src="proje_resim/Roomerang/Roomerang.png?v=3" alt="Roomerang" loading="lazy" decoding="async" style="width:100%; height:auto; border-radius:2px; display:block;">
+            </div>
+        </a>
+
+        <!-- Project 4 -->
+        <a href="project-hospital.html" class="project-block reveal scroll-reveal">
+            <div class="project-info">
+                <h3>Hospital DBMS</h3>
+                <div class="tags"><span class="tr">Veritabanı · 2025</span><span class="en">Database · 2025</span></div>
+                <p class="desc tr">Bir hastanenin işleyişini taşıyan ilişkisel veritabanı. Verinin nasıl tutulacağını — şemayı ve ilişkileri — ben tasarladım.</p>
+                <p class="desc en">A relational database for running a hospital. I designed how the data is held — the schema and the relations.</p>
+                <span class="view-details"><span class="tr">Projeyi İncele ↗</span><span class="en">View Project ↗</span></span>
+            </div>
+            <div class="project-images">
+                <img src="proje_resim/Hospital_DBMS/hospital-dbms-thumbnail.svg" alt="Hospital DBMS" loading="lazy" decoding="async" style="width:100%; height:auto; border-radius:2px; display:block;">
+            </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ANOTHER DIVIDER IMAGE -->
+    <div class="divider-image-wrap reveal scroll-reveal">
+        <img src="ara_resim/Creater_Lake.JPG" alt="Crater Lake" class="divider-image" loading="lazy" decoding="async">
+    </div>
+
+    <!-- WHAT I DO -->
+    <section class="what-i-do">
+      <div class="wrap sec">
+        <div class="sec-head">
+          <div class="label"><span class="tr">Ne Yapıyorum</span><span class="en">What I Do</span></div>
+          <div class="dolist">
+            <div class="row"><span class="n"><span class="tr">Tasarım</span><span class="en">Design</span></span><span class="x">Design</span></div>
+            <div class="row"><span class="n"><span class="tr">Web</span><span class="en">Web</span></span><span class="x">Web</span></div>
+            <div class="row"><span class="n"><span class="tr">Yapay zekâ</span><span class="en">AI</span></span><span class="x">AI</span></div>
+            <div class="row"><span class="n"><span class="tr">Veritabanı</span><span class="en">Database</span></span><span class="x">Database</span></div>
+            <div class="row"><span class="n"><span class="tr">Süreç tasarımı</span><span class="en">Process design</span></span><span class="x">Process</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="exp">
+      <div class="wrap sec">
+        <div class="sec-head">
+          <div class="label"><span class="tr">Deneyim</span><span class="en">Experience</span></div>
+          <table class="exp">
+            <tr><td class="role"><span class="tr">Proje Okulu Katılımcısı</span><span class="en">Project School Participant</span></td><td class="org">Microsoft AI Innovators</td><td class="yr">2026</td></tr>
+            <tr><td class="role"><span class="tr">Stajyer</span><span class="en">Intern</span></td><td class="org"><span class="tr">Software Persona (Uzaktan)</span><span class="en">Software Persona (Remote)</span></td><td class="yr">2026</td></tr>
+            <tr><td class="role"><span class="tr">Planlama Stajı</span><span class="en">Planning Intern</span></td><td class="org">Akdaş Döküm</td><td class="yr">2026</td></tr>
+            <tr><td class="role"><span class="tr">BT Stajı</span><span class="en">IT Intern</span></td><td class="org">BOTAŞ</td><td class="yr">2026</td></tr>
+            <tr><td class="role"><span class="tr">Work &amp; Travel</span><span class="en">Work &amp; Travel</span></td><td class="org"><span class="tr">Oregon, ABD</span><span class="en">Oregon, USA</span></td><td class="yr">2025</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section" style="padding: clamp(60px, 10vh, 120px) 0;">
+      <div class="wrap">
+        <h2><span class="tr">Hadi konuşalım!</span><span class="en">Let's talk!</span></h2>
+        <form class="contact-form">
+          <input type="text" placeholder="İsim" id="formName" required>
+          <input type="email" placeholder="E-posta" id="formEmail" required>
+          <textarea placeholder="Mesajınız" rows="5" id="formMsg" required></textarea>
+          <button type="submit"><span class="tr">GÖNDER</span><span class="en">SEND</span></button>
+        </form>
+        <div class="social-links" style="display: flex; justify-content: center; gap: 40px; margin-top: 60px;">
+          <a href="https://www.linkedin.com/in/omer-harmankaya/" target="_blank">LNKDN ↗</a>
+          <a href="https://github.com/OmerHarmankayaC" target="_blank">GITHUB ↗</a>
+          <a href="#" onclick="navigator.clipboard.writeText('omr.harmankaya@gmail.com').then(() => alert('Mail adresi kopyalandı!')); return false;">MAIL ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap"><div class="big">ÖMER<br>HARMANKAYA</div></div>
+    <div class="wrap">
+      <div style="display: flex; justify-content: space-between; padding: 40px 0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.13em; color: var(--muted); border-top: 1px solid var(--line);">
+        <div>© 2026</div>
+        <div><span class="tr">Ankara</span><span class="en">Ankara</span></div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // Page-load reveal
+  window.addEventListener('load', () => { document.body.classList.add('in'); });
+  if(document.readyState === 'complete') document.body.classList.add('in');
+
+  // Scroll reveal for elements lower down the page
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+  document.querySelectorAll('.scroll-reveal').forEach((el) => {
+    observer.observe(el);
+  });
+
+  // Custom Cursor
+  const cursor = document.getElementById('cursor');
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let cursorX = mouseX;
+  let cursorY = mouseY;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animateCursor() {
+    cursorX += (mouseX - cursorX) * 0.5;
+    cursorY += (mouseY - cursorY) * 0.5;
+    // 14x14 karenin tam merkezini (7px) fare ucuyla eşleştiriyoruz
+    cursor.style.transform = `translate3d(${cursorX - 7}px, ${cursorY - 7}px, 0)`;
+    requestAnimationFrame(animateCursor);
+  }
+  requestAnimationFrame(animateCursor);
+
+// Language Logic
+  const savedLang = localStorage.getItem('site_lang') || 'tr';
+  document.documentElement.lang = savedLang;
+  
+  function updateLangToggleText() {
+    const btns = document.querySelectorAll('.lang-toggle');
+    btns.forEach(btn => {
+      btn.textContent = document.documentElement.lang === 'tr' ? 'ENGLISH' : 'TÜRKÇE';
+    });
+    
+    // Update placeholders based on language
+    const formName = document.getElementById('formName');
+    const formEmail = document.getElementById('formEmail');
+    const formMsg = document.getElementById('formMsg');
+    if (formName) formName.placeholder = document.documentElement.lang === 'tr' ? 'İsim' : 'Name';
+    if (formEmail) formEmail.placeholder = document.documentElement.lang === 'tr' ? 'E-posta' : 'Email';
+    if (formMsg) formMsg.placeholder = document.documentElement.lang === 'tr' ? 'Mesajınız' : 'Your message';
+  }
+  
+  const langToggleBtns = document.querySelectorAll('.lang-toggle');
+  updateLangToggleText();
+  langToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const newLang = document.documentElement.lang === 'tr' ? 'en' : 'tr';
+      document.documentElement.lang = newLang;
+      localStorage.setItem('site_lang', newLang);
+      updateLangToggleText();
+    });
+  });
+
+  // Mobile Menu Logic
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  if(hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // Hover effect for interactive elements
+  const interactiveElements = document.querySelectorAll('a, button, input, textarea, .project-block');
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+  });
+</script>
+</body>
 </html>

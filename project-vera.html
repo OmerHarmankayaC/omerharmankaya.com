@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vera Finance — Ömer Harmankaya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .proj-hero { padding-top: clamp(100px, 15vh, 200px); padding-bottom: clamp(60px, 10vh, 100px); }
+  .proj-hero .wrap { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 40px; }
+  .proj-hero h1 { font-weight: 300; font-size: clamp(3.5rem, 10vw, 9rem); line-height: 0.95; letter-spacing: -0.05em; text-transform: uppercase; margin-bottom: 0; }
+  .proj-meta { display: flex; gap: 40px; margin-bottom: 15px; }
+  .proj-meta .col .label { font-size: 0.65rem; color: var(--faint); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .proj-meta .col .val { font-size: 0.95rem; color: var(--ink); font-weight: 500; }
+  
+  .proj-content { padding: clamp(60px, 10vh, 120px) 0; }
+  .proj-grid { display: grid; grid-template-columns: 300px 1fr; gap: 40px; margin-bottom: clamp(60px, 10vh, 100px); }
+  @media(max-width: 800px) { .proj-grid { grid-template-columns: 1fr; gap: 20px; } }
+  .proj-grid h3 { font-size: 1.5rem; font-weight: 300; color: var(--ink); margin-bottom: 20px; }
+  .proj-grid p { font-size: 1.15rem; color: #A2A19B; line-height: 1.6; margin-bottom: 20px; max-width: 65ch; }
+  .proj-grid p strong { color: var(--ink); font-weight: 500; }
+  
+  .next-proj { padding: clamp(80px, 15vh, 150px) 0; text-align: center; display: block; text-decoration: none; }
+  .next-proj .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--faint); margin-bottom: 20px; transition: color 0.4s; }
+  .next-proj h2 { font-size: clamp(3rem, 8vw, 7rem); font-weight: 300; letter-spacing: -0.04em; margin: 0; color: var(--muted); transition: color 0.4s, transform 0.4s; display: inline-block; }
+  
+  .next-proj:hover .label { color: var(--ink); }
+  .next-proj:hover h2 { color: #ffffff; transform: translateY(-10px); }
+
+  /* Phone Slider Styles */
+  .phone-slider-section { padding: clamp(40px, 8vh, 100px) 0; display: flex; flex-direction: column; align-items: center; }
+  .phone-frame-container { perspective: 1000px; }
+  .phone-frame {
+    position: relative; width: 320px; height: 650px; background: #000; border-radius: 40px;
+    border: 12px solid #1a1a1a; box-shadow: 0 25px 60px rgba(0,0,0,0.8), inset 0 0 0 2px #333;
+    overflow: hidden; touch-action: pan-y;
+  }
+  .notch {
+    position: absolute; top: -2px; left: 50%; transform: translateX(-50%);
+    width: 140px; height: 25px; background: #1a1a1a; border-radius: 0 0 20px 20px; z-index: 10;
+  }
+  .slider-track { display: flex; height: 100%; width: 100%; will-change: transform; }
+  .slide { flex: 0 0 100%; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; }
+  .slide img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; border-radius: 28px; }
+  
+  .status-bar {
+    position: absolute; top: 0; left: 0; width: 100%; height: auto; z-index: 9;
+    pointer-events: none; border-radius: 28px 28px 0 0;
+  }
+  .slider-controls {
+    display: flex; justify-content: center; gap: 20px; margin-top: 30px;
+  }
+  .slider-controls button {
+    background: transparent; border: 1px solid var(--line); color: var(--muted);
+    width: 44px; height: 44px; border-radius: 50%; font-size: 1.2rem;
+    cursor: none; transition: color 0.3s, border-color 0.3s;
+    display: flex; align-items: center; justify-content: center; padding-bottom: 2px;
+  }
+  .slider-controls button:hover {
+    color: var(--ink); border-color: var(--ink);
+  }
+  
+  .cursor-follower.dragging { transform: scale(0.5); background-color: var(--accent); border-color: var(--accent); }
+</style>
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+  <div class="cursor-follower" id="cursor"></div>
+
+  <header class="topbar-carl">
+    <a href="index.html#work"><span class="tr">← Geri Dön</span><span class="en">← Back</span></a>
+    <a href="index.html">Ömer Harmankaya</a>
+    <a href="mailto:omr.harmankaya@gmail.com"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+    <button id="lang-toggle" class="lang-toggle">ENGLISH</button>
+  </header>
+
+  <main>
+    <section class="proj-hero">
+      <div class="wrap reveal">
+        <h1>Vera<br>Finance</h1>
+        <div class="proj-meta">
+          <div class="col"><div class="label"><span class="tr">ROL</span><span class="en">ROLE</span></div><div class="val"><span class="tr">Ürün Yönü & Sistem</span><span class="en">Product Direction & System</span></div></div>
+          <div class="col"><div class="label">PLATFORM</div><div class="val">iOS</div></div>
+          <div class="col"><div class="label"><span class="tr">YIL</span><span class="en">YEAR</span></div><div class="val">2025</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-content wrap split-layout" style="margin-bottom: clamp(60px, 10vh, 120px);">
+      <!-- Text Side -->
+      <div class="text-side">
+        <div class="proj-grid scroll-reveal reveal" style="border-top: none; padding-top: 0; margin-bottom: 40px;">
+          <div><h3 style="color: #ffffff;"><span class="tr">Problem</span><span class="en">Problem</span></h3></div>
+          <div>
+            <p class="tr">Kişisel finans yönetimi çoğu insan için sıkıcı ve takibi zor bir süreç. Geleneksel uygulamalar manuel veri girişi gerektirdiği için sürdürülebilir bir alışkanlık yaratamıyor. Fişleri, faturaları ve abonelikleri takip etmek külfet hâline geliyor.</p>
+            <p class="en">For most people, managing personal finances is tedious and hard to keep up with. Traditional apps lean on manual entry, so they never turn into a habit that lasts. Keeping track of receipts, bills, and subscriptions becomes a chore.</p>
+          </div>
+        </div>
+        <div class="proj-grid scroll-reveal reveal" style="border-top: 1px solid var(--line); padding-top: 40px; margin-bottom: 40px;">
+          <div><h3 style="color: #ffffff;"><span class="tr">Çözüm & Yaklaşım</span><span class="en">Solution & Approach</span></h3></div>
+          <div>
+            <p class="tr">Vera'yı kendi başına çalışan bir finans asistanı olarak kurguladım. Kullanıcı harcamasını elle girmek yerine fişinin fotoğrafını çekiyor; yapay zekâ veriyi saniyeler içinde okuyup kategorize ediyor ve bütçeye işliyor. Buna stok takibini ve bütçe öngörülerini ekleyerek, kullanıcının sonradan değil önceden karar almasına yardımcı olan bir yapı tasarladım.</p>
+            <p class="en">I built Vera as a finance assistant that runs on its own. Instead of typing in every expense, the user photographs a receipt; the AI reads the data in seconds, sorts it into categories, and writes it to the budget. On top of that I designed stock tracking and budget forecasts, so the system helps the user decide ahead of time rather than after the fact.</p>
+          </div>
+        </div>
+        <div class="proj-grid scroll-reveal reveal" style="border-top: 1px solid var(--line); padding-top: 40px; margin-bottom: 40px;">
+          <div><h3 style="color: #ffffff;"><span class="tr">Sonuç</span><span class="en">Result</span></h3></div>
+          <div>
+            <p class="tr">Vera, App Store'da yayınlanan ilk gerçek ürünüm oldu. Benim için asıl kazanç, bir fikrin tasarımından mağazada canlıya çıkmasına kadarki yolu görmek; hangi kararın nereye dokunduğunu yaşayarak öğrenmekti. Hem ürünün yönünü hem de arkasındaki kurguyu yönetmek, bana tek bir parçayı değil bütünü düşünmenin ne demek olduğunu gösterdi.</p>
+            <p class="en">Vera was the first real product I shipped — it went live on the App Store. The real gain for me was seeing the whole path, from designing an idea to publishing it in a store, and learning first-hand how each decision feeds the next. Running both the direction and the build taught me what it means to think about the whole thing instead of a single piece.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animation Side -->
+      <div class="anim-side scroll-reveal reveal">
+        <div class="phone-slider-section" style="padding-top: 0;">
+          <div class="phone-frame-container">
+            <div class="phone-frame">
+              <div class="notch"></div>
+              <img src="proje_resim/vera/Vera-In_App-screenshots/time_battery.png" class="status-bar" alt="Status Bar">
+              <div class="slider-track" id="vera-slider">
+                <div class="slide"><img src="proje_resim/vera/Vera-In_App-screenshots/goals.png" alt="Goals"></div>
+                <div class="slide"><img src="proje_resim/vera/Vera-In_App-screenshots/inventory.png" alt="Inventory"></div>
+                <div class="slide"><img src="proje_resim/vera/Vera-In_App-screenshots/home_screen.png" alt="Home Screen"></div>
+                <div class="slide"><img src="proje_resim/vera/Vera-In_App-screenshots/assets.png" alt="Assets"></div>
+                <div class="slide"><img src="proje_resim/vera/Vera-In_App-screenshots/insights.png" alt="Insights"></div>
+              </div>
+            </div>
+            <div class="slider-controls">
+              <button id="vera-prev" aria-label="Önceki Ekran">←</button>
+              <button id="vera-next" aria-label="Sonraki Ekran">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-image-wrap reveal scroll-reveal" style="margin-bottom: clamp(60px, 10vh, 120px);">
+      <img src="ara_resim/SanFrancisco_TwinPeaks.png" class="divider-image" style="opacity: 1; border-radius: 0; height: auto; max-height: none;" alt="San Francisco Twin Peaks" loading="lazy">
+    </div>
+
+    <a href="project-ieee.html" class="next-proj scroll-reveal reveal">
+      <div class="wrap">
+        <div class="label"><span class="tr">SONRAKİ PROJE</span><span class="en">NEXT PROJECT</span></div>
+        <h2>IEEE TEDU ↗</h2>
+      </div>
+    </a>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div style="display: flex; justify-content: space-between; padding: 40px 0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.13em; color: var(--muted); border-top: 1px solid var(--line);">
+        <div>© 2026</div>
+        <div><span class="tr">Ankara</span><span class="en">Ankara</span></div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // Page-load reveal
+  const triggerLoadReveal = () => {
+    document.querySelectorAll('.proj-hero .reveal').forEach(el => el.classList.add('in'));
+  };
+  window.addEventListener('load', triggerLoadReveal);
+  if(document.readyState === 'complete') triggerLoadReveal();
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+  document.querySelectorAll('.scroll-reveal').forEach((el) => {
+    observer.observe(el);
+  });
+
+  // Custom Cursor
+  const cursor = document.getElementById('cursor');
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let cursorX = mouseX;
+  let cursorY = mouseY;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animateCursor() {
+    cursorX += (mouseX - cursorX) * 0.5;
+    cursorY += (mouseY - cursorY) * 0.5;
+    cursor.style.transform = `translate3d(${cursorX - 7}px, ${cursorY - 7}px, 0)`;
+    requestAnimationFrame(animateCursor);
+  }
+  requestAnimationFrame(animateCursor);
+
+  // Language Logic
+  const savedLang = localStorage.getItem('site_lang') || 'tr';
+  document.documentElement.lang = savedLang;
+  
+  function updateLangToggleText() {
+    const btn = document.getElementById('lang-toggle');
+    if(btn) btn.textContent = document.documentElement.lang === 'tr' ? 'ENGLISH' : 'TÜRKÇE';
+  }
+  
+  const langToggleBtn = document.getElementById('lang-toggle');
+  if(langToggleBtn) {
+    updateLangToggleText();
+    langToggleBtn.addEventListener('click', () => {
+      const newLang = document.documentElement.lang === 'tr' ? 'en' : 'tr';
+      document.documentElement.lang = newLang;
+      localStorage.setItem('site_lang', newLang);
+      updateLangToggleText();
+    });
+  }
+
+  // Hover effect for interactive elements
+  const interactiveElements = document.querySelectorAll('a, button, input, textarea, .project-block, .next-proj');
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+  });
+
+  // Phone Slider Logic
+  const track = document.getElementById('vera-slider');
+  if (track) {
+    const slides = track.querySelectorAll('.slide');
+    let isDragging = false, startPos = 0, currentTranslate = 0, prevTranslate = 0;
+    let animationID, currentIndex = 2, velocity = 0, lastTime = 0, lastPos = 0;
+    let isWheeling = false, wheelTimeout;
+
+    const setSliderPosition = () => { track.style.transform = `translate3d(${currentTranslate}px, 0, 0)`; };
+    
+    // Initialize starting position
+    setTimeout(() => {
+      prevTranslate = currentIndex * -track.clientWidth;
+      currentTranslate = prevTranslate;
+      setSliderPosition();
+    }, 50);
+
+    const animateSnapTo = (targetTranslate) => {
+      cancelAnimationFrame(animationID);
+      const animateSnap = () => {
+        const diff = targetTranslate - currentTranslate;
+        currentTranslate += diff * 0.15; // lerp factor
+        setSliderPosition();
+        if (Math.abs(diff) > 0.5) animationID = requestAnimationFrame(animateSnap);
+        else { currentTranslate = targetTranslate; prevTranslate = currentTranslate; setSliderPosition(); }
+      };
+      animateSnap();
+    };
+
+    const snap = () => {
+      const slideWidth = track.clientWidth;
+      if (velocity < -0.5) currentIndex++;
+      else if (velocity > 0.5) currentIndex--;
+      else currentIndex = Math.round(Math.abs(currentTranslate) / slideWidth);
+      
+      currentIndex = Math.max(0, Math.min(currentIndex, slides.length - 1));
+      animateSnapTo(currentIndex * -slideWidth);
+    };
+
+    const btnPrev = document.getElementById('vera-prev');
+    const btnNext = document.getElementById('vera-next');
+    if (btnPrev) btnPrev.addEventListener('click', () => { currentIndex--; currentIndex = Math.max(0, currentIndex); animateSnapTo(currentIndex * -track.clientWidth); });
+    if (btnNext) btnNext.addEventListener('click', () => { currentIndex++; currentIndex = Math.min(slides.length - 1, currentIndex); animateSnapTo(currentIndex * -track.clientWidth); });
+
+    track.addEventListener('pointerdown', (e) => {
+      if(isWheeling) return;
+      isDragging = true; startPos = e.clientX; lastPos = startPos; lastTime = performance.now(); velocity = 0;
+      cancelAnimationFrame(animationID);
+      cursor.classList.add('dragging');
+    });
+
+    window.addEventListener('pointerup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      cursor.classList.remove('dragging');
+      snap();
+    });
+
+    window.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      const currentPosition = e.clientX;
+      currentTranslate = prevTranslate + (currentPosition - startPos);
+
+      // Boundary elasticity
+      const minTranslate = -(slides.length - 1) * track.clientWidth;
+      if (currentTranslate > 0) currentTranslate = currentTranslate * 0.3;
+      else if (currentTranslate < minTranslate) currentTranslate = minTranslate + (currentTranslate - minTranslate) * 0.3;
+
+      const now = performance.now();
+      const dt = now - lastTime;
+      if (dt > 0) velocity = (currentPosition - lastPos) / dt;
+      lastPos = currentPosition; lastTime = now;
+      setSliderPosition();
+    });
+
+    // Horizontal scroll / Trackpad support
+    track.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        e.preventDefault();
+        isWheeling = true; cancelAnimationFrame(animationID);
+        currentTranslate -= e.deltaX;
+
+        const minTranslate = -(slides.length - 1) * track.clientWidth;
+        if (currentTranslate > 0) currentTranslate = currentTranslate * 0.2;
+        if (currentTranslate < minTranslate) currentTranslate = minTranslate + (currentTranslate - minTranslate) * 0.2;
+        
+        setSliderPosition();
+        clearTimeout(wheelTimeout);
+        wheelTimeout = setTimeout(() => { isWheeling = false; snap(); }, 150);
+      }
+    }, { passive: false });
+
+    window.addEventListener('resize', () => {
+      prevTranslate = currentIndex * -track.clientWidth;
+      currentTranslate = prevTranslate;
+      setSliderPosition();
+    });
+
+    track.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+    track.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+  }
+</script>
+</body>
+</html>

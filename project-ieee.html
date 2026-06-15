@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IEEE TEDU — Ömer Harmankaya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .proj-hero { padding-top: clamp(100px, 15vh, 200px); padding-bottom: clamp(60px, 10vh, 100px); }
+  .proj-hero .wrap { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 40px; }
+  .proj-hero h1 { font-weight: 300; font-size: clamp(3.5rem, 10vw, 9rem); line-height: 0.95; letter-spacing: -0.05em; text-transform: uppercase; margin-bottom: 0; }
+  .proj-meta { display: flex; gap: 40px; margin-bottom: 15px; }
+  .proj-meta .col .label { font-size: 0.65rem; color: var(--faint); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .proj-meta .col .val { font-size: 0.95rem; color: var(--ink); font-weight: 500; }
+  
+  .proj-content { padding: clamp(60px, 10vh, 120px) 0; }
+  .proj-grid { display: grid; grid-template-columns: 300px 1fr; gap: 40px; margin-bottom: clamp(60px, 10vh, 100px); }
+  @media(max-width: 800px) { .proj-grid { grid-template-columns: 1fr; gap: 20px; } }
+  .proj-grid h3 { font-size: 1.5rem; font-weight: 300; color: var(--ink); margin-bottom: 20px; }
+  .proj-grid p { font-size: 1.15rem; color: #A2A19B; line-height: 1.6; margin-bottom: 20px; max-width: 65ch; }
+  .proj-grid p strong { color: var(--ink); font-weight: 500; }
+  
+  .next-proj { padding: clamp(80px, 15vh, 150px) 0; text-align: center; display: block; text-decoration: none; }
+  .next-proj .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--faint); margin-bottom: 20px; transition: color 0.4s; }
+  .next-proj h2 { font-size: clamp(3rem, 8vw, 7rem); font-weight: 300; letter-spacing: -0.04em; margin: 0; color: var(--muted); transition: color 0.4s, transform 0.4s; display: inline-block; }
+  
+  .next-proj:hover .label { color: var(--ink); }
+  .next-proj:hover h2 { color: #ffffff; transform: translateY(-10px); }
+
+  /* Browser Parallax Styles */
+  .browser-parallax-section { padding: clamp(40px, 8vh, 100px) 0; }
+  .browser-frame-container { width: 100%; max-width: 1000px; margin: 0 auto; }
+  .browser-frame {
+    background: #000; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--line); box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+    display: flex; flex-direction: column;
+  }
+  .browser-topbar {
+    height: 40px; background: #1a1a1a; display: flex; align-items: center;
+    padding: 0 16px; border-bottom: 1px solid var(--line); position: relative;
+  }
+  .browser-topbar .dots { display: flex; gap: 8px; }
+  .browser-topbar .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .browser-topbar .url-bar {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    background: #0a0a0a; color: var(--muted); font-size: 0.75rem;
+    padding: 4px 16px; border-radius: 4px; border: 1px solid var(--faint);
+  }
+  .browser-content { height: 60vh; min-height: 400px; width: 100%; overflow: hidden; position: relative; background: #111; }
+  .parallax-strip { width: 100%; display: flex; flex-direction: column; will-change: transform; }
+  .parallax-strip img { width: 100%; height: auto; display: block; }
+</style>
+  <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+  <div class="cursor-follower" id="cursor"></div>
+
+  <header class="topbar-carl">
+    <a href="index.html#work"><span class="tr">← Geri Dön</span><span class="en">← Back</span></a>
+    <a href="index.html">Ömer Harmankaya</a>
+    <a href="mailto:omr.harmankaya@gmail.com"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+    <button id="lang-toggle" class="lang-toggle">ENGLISH</button>
+  </header>
+
+  <main>
+    <section class="proj-hero">
+      <div class="wrap reveal">
+        <h1>IEEE<br>TEDU</h1>
+        <div class="proj-meta">
+          <div class="col"><div class="label"><span class="tr">ROL</span><span class="en">ROLE</span></div><div class="val"><span class="tr">Web Geliştirme & Tasarım</span><span class="en">Web Development & Design</span></div></div>
+          <div class="col"><div class="label">PLATFORM</div><div class="val">Web</div></div>
+          <div class="col"><div class="label"><span class="tr">YIL</span><span class="en">YEAR</span></div><div class="val">2026</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proj-content wrap split-layout" style="margin-bottom: clamp(60px, 10vh, 120px);">
+      <!-- Text Side -->
+      <div class="text-side">
+        <div class="proj-grid scroll-reveal reveal" style="border-top: none; padding-top: 0; margin-bottom: 60vh;">
+          <div><h3 style="color: #ffffff;"><span class="tr">Vizyon</span><span class="en">Vision</span></h3></div>
+          <div>
+            <p class="tr">TED Üniversitesi IEEE öğrenci kolunun dijital varlığını güçlendirmek, etkinlik duyurularını ve blog yazılarını merkezi bir sistemden yönetebilmek için modern ve dinamik bir web platformuna ihtiyaç vardı.</p>
+            <p class="en">TED University's IEEE student branch needed a modern, dynamic platform — to strengthen its presence online and to run event announcements and blog posts from one place.</p>
+          </div>
+        </div>
+        <div class="proj-grid scroll-reveal reveal" style="border-top: 1px solid var(--line); padding-top: 40px; margin-bottom: 60vh;">
+          <div><h3 style="color: #ffffff;"><span class="tr">Geliştirme Süreci</span><span class="en">Development</span></h3></div>
+          <div>
+            <p class="tr">Kullanıcı deneyimini ön planda tutan, erişilebilir ve mobil uyumlu bir arayüz tasarladım. Tasarım aşamasından canlıya alınmasına kadar tüm süreci ben yürüttüm. Dinamik bir blog altyapısı kurarak içerik yönetimini sadeleştirdim; böylece topluluk üyeleri kendi etkinlik yazılarını kolayca yayınlayabiliyor.</p>
+            <p class="en">I designed an accessible, mobile-friendly interface with the user experience first in mind. I ran the whole process myself, from design through to deployment. I also set up a dynamic blog that made content easy to manage, so members can publish their own event posts without needing help.</p>
+          </div>
+        </div>
+        <div class="proj-grid scroll-reveal reveal" style="border-top: 1px solid var(--line); padding-top: 40px; margin-bottom: 20vh;">
+          <div><h3 style="color: #ffffff;"><span class="tr">Sonuç</span><span class="en">Result</span></h3></div>
+          <div>
+            <p class="tr">Site şu an aktif olarak kullanılıyor ve topluluğun etkinliklerini, yazılarını tek bir yerden yönetebildiği bir merkez hâline geldi. Benim için bu proje, bir tasarımı fikir aşamasından gerçekten insanların kullandığı canlı bir şeye dönüştürmenin pratiğiydi.</p>
+            <p class="en">The site is in active use and has become the place where the community runs its events and writing from a single spot. For me, the project was practice in taking a design from an idea to something live that people actually use.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animation Side -->
+      <div class="anim-side scroll-reveal reveal">
+        <div class="browser-parallax-section" style="padding-top: 0;">
+          <div class="browser-frame-container">
+            <div class="browser-frame">
+              <div class="browser-topbar">
+                <div class="dots">
+                  <span class="dot" style="background:#ff5f56;"></span>
+                  <span class="dot" style="background:#ffbd2e;"></span>
+                  <span class="dot" style="background:#27c93f;"></span>
+                </div>
+                <div class="url-bar">ieee.tedu.edu.tr</div>
+              </div>
+              <div class="browser-content" id="ieee-parallax">
+                <div class="parallax-strip">
+                  <img src="proje_resim/ieee/scroll-animation/1st.png" alt="Section 1" loading="lazy" style="width: 100%; display: block; aspect-ratio: 3024/1407;">
+                  <img src="proje_resim/ieee/scroll-animation/2nd.png" alt="Section 2" loading="lazy" style="width: 100%; display: block; aspect-ratio: 3024/1269;">
+                  <img src="proje_resim/ieee/scroll-animation/3rd.png" alt="Section 3" loading="lazy" style="width: 100%; display: block; aspect-ratio: 3024/1504;">
+                  <img src="proje_resim/ieee/scroll-animation/4th.png" alt="Section 4" loading="lazy" style="width: 100%; display: block; aspect-ratio: 3024/1508;">
+                  <img src="proje_resim/ieee/scroll-animation/5th.png" alt="Section 5" loading="lazy" style="width: 100%; display: block; aspect-ratio: 3024/1500;">
+                  <img src="proje_resim/ieee/scroll-animation/6th.png" alt="Section 6" loading="lazy" style="width: 100%; display: block; aspect-ratio: 3024/1469;">
+                  <img src="proje_resim/ieee/scroll-animation/7th.png" alt="Section 7" loading="lazy" style="width: 100%; display: block; aspect-ratio: 3024/1064;">
+                  <img src="proje_resim/ieee/scroll-animation/8th.png" alt="Section 8" loading="lazy" style="width: 100%; display: block; aspect-ratio: 3024/1216;">
+                  <img src="proje_resim/ieee/scroll-animation/9th.png" alt="Section 9" loading="lazy" style="width: 100%; display: block; aspect-ratio: 3024/1120;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-image-wrap reveal scroll-reveal" style="margin-bottom: clamp(60px, 10vh, 120px);">
+      <img src="ara_resim/Golden_Gate.JPG" class="divider-image" style="opacity: 1; border-radius: 0;" alt="Golden Gate Bridge" loading="lazy">
+    </div>
+
+    <a href="project-roomerang.html" class="next-proj scroll-reveal reveal">
+      <div class="wrap">
+        <div class="label"><span class="tr">SONRAKİ PROJE</span><span class="en">NEXT PROJECT</span></div>
+        <h2>Roomerang ↗</h2>
+      </div>
+    </a>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div style="display: flex; justify-content: space-between; padding: 40px 0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.13em; color: var(--muted); border-top: 1px solid var(--line);">
+        <div>© 2026</div>
+        <div><span class="tr">Ankara</span><span class="en">Ankara</span></div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // Page-load reveal
+  const triggerLoadReveal = () => {
+    document.querySelectorAll('.proj-hero .reveal').forEach(el => el.classList.add('in'));
+  };
+  window.addEventListener('load', triggerLoadReveal);
+  if(document.readyState === 'complete') triggerLoadReveal();
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+  document.querySelectorAll('.scroll-reveal').forEach((el) => {
+    observer.observe(el);
+  });
+
+  // Custom Cursor
+  const cursor = document.getElementById('cursor');
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let cursorX = mouseX;
+  let cursorY = mouseY;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animateCursor() {
+    cursorX += (mouseX - cursorX) * 0.5;
+    cursorY += (mouseY - cursorY) * 0.5;
+    cursor.style.transform = `translate3d(${cursorX - 7}px, ${cursorY - 7}px, 0)`;
+    requestAnimationFrame(animateCursor);
+  }
+  requestAnimationFrame(animateCursor);
+
+  // Language Logic
+  const savedLang = localStorage.getItem('site_lang') || 'tr';
+  document.documentElement.lang = savedLang;
+  
+  function updateLangToggleText() {
+    const btn = document.getElementById('lang-toggle');
+    if(btn) btn.textContent = document.documentElement.lang === 'tr' ? 'ENGLISH' : 'TÜRKÇE';
+  }
+  
+  const langToggleBtn = document.getElementById('lang-toggle');
+  if(langToggleBtn) {
+    updateLangToggleText();
+    langToggleBtn.addEventListener('click', () => {
+      const newLang = document.documentElement.lang === 'tr' ? 'en' : 'tr';
+      document.documentElement.lang = newLang;
+      localStorage.setItem('site_lang', newLang);
+      updateLangToggleText();
+    });
+  }
+
+  // Hover effect for interactive elements
+  const interactiveElements = document.querySelectorAll('a, button, input, textarea, .project-block, .next-proj');
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+  });
+
+  // Browser Parallax Logic
+  const parallaxContainer = document.getElementById('ieee-parallax');
+  if (parallaxContainer) {
+    const strip = parallaxContainer.querySelector('.parallax-strip');
+    let currentScrollY = 0;
+    let targetScrollY = 0;
+    let isAnimating = false;
+
+    const updateParallax = () => {
+      const splitLayout = document.querySelector('.split-layout');
+      const animSide = document.querySelector('.anim-side');
+      if (!splitLayout || !animSide) return;
+
+      const rect = splitLayout.getBoundingClientRect();
+      const stickyStart = 120; // corresponding to top: 120px
+      const scrollDistance = rect.height - animSide.offsetHeight;
+
+      let scrollPercent = 0;
+      if (scrollDistance > 0) {
+        const scrolledPastStart = stickyStart - rect.top;
+        scrollPercent = scrolledPastStart / scrollDistance;
+      }
+      
+      scrollPercent = Math.max(0, Math.min(1, scrollPercent));
+
+      const stripHeight = strip.scrollHeight;
+      const containerHeight = parallaxContainer.clientHeight;
+      const maxTranslate = Math.max(0, stripHeight - containerHeight);
+
+      targetScrollY = -(maxTranslate * scrollPercent);
+
+      if (!isAnimating) {
+        isAnimating = true;
+        requestAnimationFrame(lerpParallax);
+      }
+    };
+
+    const lerpParallax = () => {
+      currentScrollY += (targetScrollY - currentScrollY) * 0.1; // lerp factor
+      strip.style.transform = `translate3d(0, ${currentScrollY}px, 0)`;
+
+      if (Math.abs(targetScrollY - currentScrollY) > 0.5) {
+        requestAnimationFrame(lerpParallax);
+      } else {
+        currentScrollY = targetScrollY;
+        strip.style.transform = `translate3d(0, ${currentScrollY}px, 0)`;
+        isAnimating = false;
+      }
+    };
+
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    window.addEventListener('resize', updateParallax);
+    
+    // Initial call after images likely loaded
+    setTimeout(updateParallax, 100);
+    setTimeout(updateParallax, 500);
+    setTimeout(updateParallax, 1500);
+  }
+</script>
+</body>
+</html>
