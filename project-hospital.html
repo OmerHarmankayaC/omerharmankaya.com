@@ -82,7 +82,157 @@
 
       <!-- Animation / Placeholder Side -->
       <div class="anim-side scroll-reveal reveal" style="padding-top: clamp(40px, 8vh, 100px);">
-        <img src="proje_resim/Hospital_DBMS/er_schema.png" alt="Hospital DBMS ER Schema" style="width: 100%; height: auto; border-radius: 4px; display: block;">
+        
+        <style>
+          .db-mockup {
+            width: 100%; background: #16150F; border-radius: 14px;
+            border: 1px solid #34322A; font-family: 'Inter', sans-serif;
+            color: #E5E2D7; display: flex; flex-direction: column; overflow: hidden;
+          }
+          .db-titlebar {
+            background: #1E1C15; height: 44px; display: flex; align-items: center;
+            padding: 0 16px; border-bottom: 1px solid #26241D; position: relative;
+          }
+          .db-dots { display: flex; gap: 8px; }
+          .db-dot { width: 12px; height: 12px; border-radius: 50%; }
+          .db-dot.r { background: #FF5F56; } .db-dot.y { background: #FFBD2E; } .db-dot.g { background: #27C93F; }
+          .db-title { position: absolute; left: 50%; transform: translateX(-50%); font-family: monospace; font-size: 13px; color: #8F8C80; }
+          .db-body { display: flex; flex-direction: row; height: 500px; }
+          .db-sidebar {
+            width: 180px; background: #19170F; border-right: 1px solid #26241D;
+            display: flex; flex-direction: column; overflow-y: auto; padding: 12px 0;
+          }
+          .db-table-btn {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 10px 16px; cursor: none; background: transparent; border: none;
+            color: #8F8C80; font-family: monospace; font-size: 13px; text-align: left;
+            transition: all 0.2s; border-left: 2px solid transparent; outline: none;
+          }
+          .db-table-btn:hover, .db-table-btn:focus { background: rgba(194, 105, 63, 0.05); color: #E5E2D7; }
+          .db-table-btn.active { background: rgba(194, 105, 63, 0.1); color: #E5E2D7; border-left: 2px solid #C2693F; }
+          .db-table-btn-left { display: flex; align-items: center; gap: 8px; }
+          .db-table-icon { width: 14px; height: 14px; opacity: 0.7; fill: none; stroke: currentColor; stroke-width: 2; }
+          .db-main { flex: 1; display: flex; flex-direction: column; background: #16150F; overflow-y: auto; padding: 24px; }
+          .db-query { font-family: monospace; font-size: 14px; padding-bottom: 20px; border-bottom: 1px solid #26241D; margin-bottom: 24px; }
+          .db-keyword { color: #C2693F; }
+          .db-target-btn { background: transparent; border: none; padding: 0; font: inherit; color: #9FC0CE; cursor: none; transition: color 0.2s; outline: none; }
+          .db-target-btn:hover, .db-target-btn:focus { color: #E5E2D7; text-decoration: underline; }
+          .db-section-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #8F8C80; margin-bottom: 12px; font-weight: 600; }
+          .db-cols { display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px; }
+          .db-col-row { display: flex; align-items: center; font-family: monospace; font-size: 13px; padding: 8px 12px; background: rgba(255,255,255,0.02); border-radius: 6px; border: 1px solid rgba(255,255,255,0.02); }
+          .db-col-name { width: 140px; color: #E5E2D7; } .db-col-type { width: 90px; color: #8F8C80; }
+          .db-badge { padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-left: auto; }
+          .db-badge.pk { background: rgba(194, 105, 63, 0.15); color: #C2693F; }
+          button.db-badge.fk { background: rgba(159, 192, 206, 0.15); color: #9FC0CE; cursor: none; transition: background 0.2s; border: none; font-family: inherit; line-height: inherit; outline: none; }
+          button.db-badge.fk:hover, button.db-badge.fk:focus { background: rgba(159, 192, 206, 0.25); }
+          .db-samples { margin-bottom: 32px; overflow: hidden; border-radius: 8px; border: 1px solid #26241D; }
+          .db-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-family: monospace; font-size: 13px; }
+          .db-table th, .db-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #26241D; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+          .db-table tr:last-child td { border-bottom: none; }
+          .db-table th { color: #8F8C80; font-weight: 400; border-bottom: 1px solid #34322A; background: rgba(255,255,255,0.01); }
+          .db-table td { color: #E5E2D7; }
+          .db-rels { font-family: monospace; font-size: 13px; color: #8F8C80; line-height: 1.6; }
+          .db-rels-list { list-style: none; padding: 0; margin: 0; }
+          .db-rels-list li::before { content: "•"; color: #34322A; margin-right: 8px; }
+          @media(max-width: 768px) {
+            .db-body { flex-direction: column; height: auto; min-height: 500px; }
+            .db-sidebar { width: 100%; height: 60px; flex-direction: row; overflow-x: auto; overflow-y: hidden; border-right: none; border-bottom: 1px solid #26241D; padding: 0; }
+            .db-table-btn { border-left: none; border-bottom: 2px solid transparent; white-space: nowrap; height: 100%; padding: 0 20px; }
+            .db-table-btn.active { border-left: none; border-bottom: 2px solid #C2693F; }
+            .db-count { display: none; }
+            .db-col-row { flex-wrap: wrap; gap: 8px; }
+            .db-col-name { width: 100%; }
+            .db-badge { margin-left: 0; }
+          }
+        </style>
+
+        <div class="db-mockup" id="db-mockup">
+          <div class="sr-only" style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;">Interactive database explorer for Hospital DBMS schema.</div>
+          <div class="db-titlebar">
+            <div class="db-dots"><div class="db-dot r"></div><div class="db-dot y"></div><div class="db-dot g"></div></div>
+            <div class="db-title">hospital_dbms &middot; sqlite</div>
+          </div>
+          <div class="db-body">
+            <div class="db-sidebar" id="db-sidebar" role="tablist" aria-label="Database tables"></div>
+            <div class="db-main" id="db-main" role="tabpanel" aria-live="polite">
+              <div class="db-query" id="db-query"></div>
+              <div class="db-section-title">Columns</div>
+              <div class="db-cols" id="db-cols"></div>
+              <div class="db-section-title">Sample Data</div>
+              <div class="db-samples">
+                <table class="db-table"><thead id="db-table-head"></thead><tbody id="db-table-body"></tbody></table>
+              </div>
+              <div class="db-section-title">Relationships</div>
+              <div class="db-rels"><ul class="db-rels-list" id="db-rels"></ul></div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          const dbData = {
+            patients: { count: 128, columns: [{ name: 'id', type: 'INTEGER', key: 'PK' }, { name: 'name', type: 'TEXT' }, { name: 'birth_date', type: 'DATE' }, { name: 'contact', type: 'TEXT' }, { name: 'address', type: 'TEXT' }, { name: 'medical_history', type: 'TEXT' }, { name: 'insurance', type: 'TEXT' }], samples: [[1, "Ali Yılmaz", "1992-04-11", "0532…", "Çankaya, Ankara", "Asthma", "SGK"], [2, "Sarah Johnson", "1988-09-23", "0541…", "Kadıköy, İstanbul", "None", "Private"]], relationships: [{ text: "referenced by ", links: ["appointments", "laboratory", "prescriptions", "billing"] }] },
+            doctors: { count: 24, columns: [{ name: 'id', type: 'INTEGER', key: 'PK' }, { name: 'name', type: 'TEXT' }, { name: 'availability', type: 'TEXT' }, { name: 'contact', type: 'TEXT' }, { name: 'address', type: 'TEXT' }, { name: 'department_no', type: 'INTEGER', key: 'FK', target: 'departments' }, { name: 'supervisor_id', type: 'INTEGER', key: 'FK', target: 'doctors' }], samples: [[1, "Dr. Elif Demir", "Mon–Fri", "0533…", "—", 3, "NULL"], [2, "Dr. Mark Lee", "Tue–Sat", "0544…", "—", 1, 1]], relationships: [{ text: "department_no &rarr; ", links: ["departments"] }, { text: "supervisor_id &rarr; ", links: ["doctors"] }, { text: "attends ", links: ["appointments"] }, { text: "gives ", links: ["prescriptions"] }, { text: "asks ", links: ["laboratory"] }] },
+            appointments: { count: 341, columns: [{ name: 'appointment_no', type: 'TEXT', key: 'PK' }, { name: 'date', type: 'DATE' }, { name: 'status', type: 'TEXT' }, { name: 'patient_id', type: 'INTEGER', key: 'FK', target: 'patients' }, { name: 'doctor_id', type: 'INTEGER', key: 'FK', target: 'doctors' }], samples: [["A-1042", "2026-07-15", "Scheduled", 1, 1], ["A-1043", "2026-07-16", "Checked-in", 2, 2]], relationships: [{ text: "patient_id &rarr; ", links: ["patients"] }, { text: "doctor_id &rarr; ", links: ["doctors"] }, { text: "linked to ", links: ["billing"] }] },
+            prescriptions: { count: 512, columns: [{ name: 'prescription_no', type: 'TEXT', key: 'PK' }, { name: 'medicine', type: 'TEXT' }, { name: 'patient_id', type: 'INTEGER', key: 'FK', target: 'patients' }, { name: 'doctor_id', type: 'INTEGER', key: 'FK', target: 'doctors' }], samples: [["P-0091", "Amoxicillin 500mg", 1, 1], ["P-0092", "Ibuprofen 400mg", 2, 2]], relationships: [{ text: "patient_id &rarr; ", links: ["patients"] }, { text: "doctor_id &rarr; ", links: ["doctors"] }] },
+            laboratory: { count: 206, columns: [{ name: 'lab_no', type: 'TEXT', key: 'PK' }, { name: 'test_type', type: 'TEXT' }, { name: 'test_date', type: 'DATE' }, { name: 'results', type: 'TEXT' }, { name: 'patient_id', type: 'INTEGER', key: 'FK', target: 'patients' }, { name: 'doctor_id', type: 'INTEGER', key: 'FK', target: 'doctors' }], samples: [["L-3310", "Blood panel", "2026-07-12", "Normal", 1, 1], ["L-3311", "X-ray", "2026-07-13", "Pending", 2, 2]], relationships: [{ text: "patient_id &rarr; ", links: ["patients"] }, { text: "doctor_id &rarr; ", links: ["doctors"] }] },
+            billing: { count: 298, columns: [{ name: 'billing_no', type: 'TEXT', key: 'PK' }, { name: 'price', type: 'DECIMAL' }, { name: 'status', type: 'TEXT' }, { name: 'patient_id', type: 'INTEGER', key: 'FK', target: 'patients' }, { name: 'appointment_no', type: 'TEXT', key: 'FK', target: 'appointments' }], samples: [["B-7781", "₺1.860", "Paid", 1, "A-1042"], ["B-7782", "₺930", "Pending", 2, "A-1043"]], relationships: [{ text: "patient_id &rarr; ", links: ["patients"] }, { text: "appointment_no &rarr; ", links: ["appointments"] }] },
+            nurses: { count: 40, columns: [{ name: 'id', type: 'INTEGER', key: 'PK' }, { name: 'name', type: 'TEXT' }, { name: 'contact', type: 'TEXT' }, { name: 'address', type: 'TEXT' }, { name: 'assigned_doctor_id', type: 'INTEGER', key: 'FK', target: 'doctors' }], samples: [[1, "Ayşe Kaya", "0532…", "—", 1], [2, "John Carter", "0541…", "—", 2]], relationships: [{ text: "assigned_doctor_id &rarr; ", links: ["doctors"] }] },
+            departments: { count: 8, columns: [{ name: 'department_no', type: 'INTEGER', key: 'PK' }, { name: 'department_name', type: 'TEXT' }, { name: 'head_doctor_id', type: 'INTEGER', key: 'FK', target: 'doctors' }], samples: [[1, "Cardiology", 2], [3, "Pediatrics", 1]], relationships: [{ text: "head_doctor_id &rarr; ", links: ["doctors"] }] }
+          };
+          const dbOrder = ['patients', 'doctors', 'appointments', 'prescriptions', 'laboratory', 'billing', 'nurses', 'departments'];
+          
+          function renderSidebar() {
+            const sidebar = document.getElementById('db-sidebar');
+            sidebar.innerHTML = '';
+            dbOrder.forEach(table => {
+              const btn = document.createElement('button');
+              btn.className = 'db-table-btn';
+              btn.setAttribute('role', 'tab');
+              btn.innerHTML = `<div class="db-table-btn-left"><svg class="db-table-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>${table}</div><div class="db-count">${dbData[table].count}</div>`;
+              btn.onclick = () => selectDbTable(table);
+              sidebar.appendChild(btn);
+            });
+          }
+          
+          function selectDbTable(table) {
+            document.querySelectorAll('.db-table-btn').forEach(btn => {
+              const isMatch = btn.innerHTML.includes(table);
+              btn.classList.toggle('active', isMatch);
+              btn.setAttribute('aria-selected', isMatch);
+            });
+            const data = dbData[table];
+            document.getElementById('db-query').innerHTML = `<span class="db-keyword">SELECT</span> * <span class="db-keyword">FROM</span> <button class="db-target-btn" onclick="selectDbTable('${table}')">${table}</button>;`;
+            document.getElementById('db-cols').innerHTML = data.columns.map(col => {
+              let badge = '';
+              if(col.key === 'PK') badge = `<span class="db-badge pk">PK</span>`;
+              if(col.key === 'FK') badge = `<button class="db-badge fk" onclick="selectDbTable('${col.target}')">FK &rarr; ${col.target}</button>`;
+              return `<div class="db-col-row"><div class="db-col-name">${col.name}</div><div class="db-col-type">${col.type}</div>${badge}</div>`;
+            }).join('');
+            const displayCols = data.columns.slice(0, 4);
+            document.getElementById('db-table-head').innerHTML = `<tr>${displayCols.map(c => `<th>${c.name}</th>`).join('')}</tr>`;
+            document.getElementById('db-table-body').innerHTML = data.samples.map(row => `<tr>${row.slice(0, 4).map(val => `<td>${val}</td>`).join('')}</tr>`).join('');
+            document.getElementById('db-rels').innerHTML = data.relationships.map(rel => {
+              let res = rel.text;
+              rel.links.forEach((link, i) => {
+                res += `<button class="db-target-btn" onclick="selectDbTable('${link}')">${link}</button>`;
+                if (i < rel.links.length - 1) res += ', ';
+              });
+              return `<li>${res}</li>`;
+            }).join('');
+            
+            // Re-bind cursor events for new elements
+            const c = document.getElementById('cursor');
+            if(c) {
+                document.querySelectorAll('.db-table-btn, .db-target-btn, .db-badge.fk').forEach(el => {
+                    el.addEventListener('mouseenter', () => c.classList.add('hovered'));
+                    el.addEventListener('mouseleave', () => c.classList.remove('hovered'));
+                });
+            }
+          }
+
+          renderSidebar();
+          selectDbTable('patients');
+        </script>
       </div>
     </section>
 

@@ -243,9 +243,23 @@
       const scrollDistance = rect.height - animSide.offsetHeight;
 
       let scrollPercent = 0;
-      if (scrollDistance > 0) {
-        const scrolledPastStart = stickyStart - rect.top;
-        scrollPercent = scrolledPastStart / scrollDistance;
+      if (window.innerWidth <= 950) {
+        const animRect = animSide.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const startScroll = windowHeight - animRect.height;
+        
+        if (animRect.top > startScroll) {
+            scrollPercent = 0;
+        } else if (animRect.top < 0) {
+            scrollPercent = 1;
+        } else {
+            scrollPercent = (startScroll - animRect.top) / startScroll;
+        }
+      } else {
+        if (scrollDistance > 0) {
+          const scrolledPastStart = stickyStart - rect.top;
+          scrollPercent = scrolledPastStart / scrollDistance;
+        }
       }
       
       scrollPercent = Math.max(0, Math.min(1, scrollPercent));

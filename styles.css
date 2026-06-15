@@ -45,6 +45,45 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   z-index: 1000;
 }
+
+/* Topbar for project pages (no .nav-links) */
+header.topbar-carl:not(:has(.nav-links)) {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+header.topbar-carl:not(:has(.nav-links)) > a,
+header.topbar-carl:not(:has(.nav-links)) > button {
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px 0; font-size: 1.05rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: #ffffff;
+  font-weight: 500; transition: background 0.3s, color 0.3s;
+  background: transparent; border: none; font-family: inherit; cursor: none;
+  border-right: 1px solid var(--line);
+}
+header.topbar-carl:not(:has(.nav-links)) > :last-child {
+  border-right: none;
+}
+header.topbar-carl:not(:has(.nav-links)) > a:hover,
+header.topbar-carl:not(:has(.nav-links)) > button:hover {
+  background: #ffffff; color: var(--bg);
+}
+
+@media(max-width: 768px) {
+  header.topbar-carl:not(:has(.nav-links)) {
+    grid-template-columns: 1fr 1fr;
+  }
+  header.topbar-carl:not(:has(.nav-links)) > a,
+  header.topbar-carl:not(:has(.nav-links)) > button {
+    font-size: 0.75rem; padding: 15px 0;
+  }
+  header.topbar-carl:not(:has(.nav-links)) > :nth-child(1),
+  header.topbar-carl:not(:has(.nav-links)) > :nth-child(2) {
+    border-bottom: 1px solid var(--line);
+  }
+  header.topbar-carl:not(:has(.nav-links)) > :nth-child(even) {
+    border-right: none;
+  }
+}
 .nav-links {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
