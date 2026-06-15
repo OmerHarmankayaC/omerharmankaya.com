@@ -102,10 +102,10 @@ a { color: inherit; text-decoration: none; }
   transition: all 0.3s ease;
 }
 .hamburger.active .bar:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(4px) rotate(45deg);
 }
 .hamburger.active .bar:nth-child(2) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-4px) rotate(-45deg);
 }
 
 .mobile-menu-overlay {

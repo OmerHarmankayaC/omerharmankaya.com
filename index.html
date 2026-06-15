@@ -21,11 +21,14 @@
       <button id="lang-toggle" class="lang-toggle">ENGLISH</button>
     </div>
     <div class="mobile-topbar">
-      <span class="mobile-logo">ÖH</span>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+      <img src="favicon.png" alt="Logo" class="mobile-logo" style="width: 32px; height: 32px; filter: invert(1); object-fit: contain; border-radius: 4px;">
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <button class="lang-toggle" style="font-size: 0.75rem; background: none; border: none; color: var(--ink); font-weight: 500; letter-spacing: 0.1em; cursor: pointer; padding: 0;">ENGLISH</button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -34,7 +37,7 @@
       <a href="#about" class="mobile-nav-link"><span class="tr">Hakkımda</span><span class="en">About</span></a>
       <a href="#work" class="mobile-nav-link"><span class="tr">İşler</span><span class="en">Work</span></a>
       <a href="#contact" class="mobile-nav-link"><span class="tr">İletişim</span><span class="en">Contact</span></a>
-      <button class="lang-toggle mobile-lang-toggle">ENGLISH</button>
+
     </div>
   </div>
 
@@ -42,7 +45,7 @@
     <!-- HERO -->
     <section class="hero" id="top" style="overflow: hidden;">
       <div class="wrap" style="text-align: center; display: flex; justify-content: center;">
-        <h1 class="reveal d1" style="font-size: clamp(3rem, 11vw, 12.5rem); line-height: 1; margin: 0; letter-spacing: -0.05em; padding-bottom: 40px; margin-right: -0.05em; word-break: break-word;">Ömer Harmankaya</h1>
+        <h1 class="reveal d1" style="font-size: clamp(2rem, 7vw, 12.5rem); line-height: 1; margin: 0; letter-spacing: -0.05em; padding-bottom: 40px; margin-right: -0.05em; white-space: nowrap;">Ömer Harmankaya</h1>
       </div>
     </section>
 
@@ -286,6 +289,25 @@
       });
     });
   }
+
+  // Smooth scroll without changing URL hash
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        const headerOffset = window.innerWidth <= 768 ? 73 : 0;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+           top: offsetPosition,
+           behavior: "smooth"
+        });
+      }
+    });
+  });
 
   // Hover effect for interactive elements
   const interactiveElements = document.querySelectorAll('a, button, input, textarea, .project-block');
