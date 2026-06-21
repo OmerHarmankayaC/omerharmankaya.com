@@ -52,6 +52,14 @@
   .browser-content { height: 60vh; min-height: 400px; width: 100%; overflow: hidden; position: relative; background: #111; }
   .parallax-strip { width: 100%; display: flex; flex-direction: column; will-change: transform; }
   .parallax-strip img { width: 100%; height: auto; display: block; }
+
+  .text-block { border-top: 1px solid var(--line); padding-top: 40px; margin-bottom: 60vh; }
+  .text-block:first-child { border-top: none; padding-top: 0; }
+  .text-block:last-child { margin-bottom: 20vh; }
+  @media (max-width: 950px) {
+    .text-block { margin-bottom: 40px; padding-top: 30px; }
+    .text-block:last-child { margin-bottom: 0; }
+  }
 </style>
   <link rel="icon" type="image/png" href="favicon.png">
 </head>
@@ -80,21 +88,21 @@
     <section class="proj-content wrap split-layout" style="margin-bottom: clamp(60px, 10vh, 120px);">
       <!-- Text Side -->
       <div class="text-side">
-        <div class="proj-grid scroll-reveal reveal" style="border-top: none; padding-top: 0; margin-bottom: 60vh;">
+        <div class="proj-grid scroll-reveal reveal text-block">
           <div><h3 style="color: #ffffff;"><span class="tr">Vizyon</span><span class="en">Vision</span></h3></div>
           <div>
             <p class="tr">TED Üniversitesi IEEE öğrenci kolunun dijital varlığını güçlendirmek, etkinlik duyurularını ve blog yazılarını merkezi bir sistemden yönetebilmek için modern ve dinamik bir web platformuna ihtiyaç vardı.</p>
             <p class="en">TED University's IEEE student branch needed a modern, dynamic platform — to strengthen its presence online and to run event announcements and blog posts from one place.</p>
           </div>
         </div>
-        <div class="proj-grid scroll-reveal reveal" style="border-top: 1px solid var(--line); padding-top: 40px; margin-bottom: 60vh;">
+        <div class="proj-grid scroll-reveal reveal text-block">
           <div><h3 style="color: #ffffff;"><span class="tr">Geliştirme Süreci</span><span class="en">Development</span></h3></div>
           <div>
             <p class="tr">Kullanıcı deneyimini ön planda tutan, erişilebilir ve mobil uyumlu bir arayüz tasarladım. Tasarım aşamasından canlıya alınmasına kadar tüm süreci ben yürüttüm. Dinamik bir blog altyapısı kurarak içerik yönetimini sadeleştirdim; böylece topluluk üyeleri kendi etkinlik yazılarını kolayca yayınlayabiliyor.</p>
             <p class="en">I designed an accessible, mobile-friendly interface with the user experience first in mind. I ran the whole process myself, from design through to deployment. I also set up a dynamic blog that made content easy to manage, so members can publish their own event posts without needing help.</p>
           </div>
         </div>
-        <div class="proj-grid scroll-reveal reveal" style="border-top: 1px solid var(--line); padding-top: 40px; margin-bottom: 20vh;">
+        <div class="proj-grid scroll-reveal reveal text-block">
           <div><h3 style="color: #ffffff;"><span class="tr">Sonuç</span><span class="en">Result</span></h3></div>
           <div>
             <p class="tr">Site şu an aktif olarak kullanılıyor ve topluluğun etkinliklerini, yazılarını tek bir yerden yönetebildiği bir merkez hâline geldi. Benim için bu proje, bir tasarımı fikir aşamasından gerçekten insanların kullandığı canlı bir şeye dönüştürmenin pratiğiydi.</p>
@@ -246,15 +254,11 @@
       if (window.innerWidth <= 950) {
         const animRect = animSide.getBoundingClientRect();
         const windowHeight = window.innerHeight;
-        const startScroll = windowHeight - animRect.height;
         
-        if (animRect.top > startScroll) {
-            scrollPercent = 0;
-        } else if (animRect.top < 0) {
-            scrollPercent = 1;
-        } else {
-            scrollPercent = (startScroll - animRect.top) / startScroll;
-        }
+        const totalDistance = windowHeight + animRect.height;
+        const scrolled = windowHeight - animRect.top;
+        
+        scrollPercent = scrolled / totalDistance;
       } else {
         if (scrollDistance > 0) {
           const scrolledPastStart = stickyStart - rect.top;

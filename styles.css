@@ -300,17 +300,25 @@ body.in .hero .d4, .in.d4 { transition-delay: .35s; }
 }
 .split-layout .anim-side {
   position: sticky;
-  top: 120px;
+  top: 50vh;
+  transform: translateY(-50%);
 }
 @media (max-width: 950px) {
   .split-layout {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
     gap: 40px;
   }
   .split-layout .anim-side {
     position: static;
+    width: 100%;
+    transform: none;
   }
-} body.in .hero .d5, .in.d5 { transition-delay: .45s; }
+  .split-layout .text-side {
+    width: 100%;
+  }
+}
+body.in .hero .d5, .in.d5 { transition-delay: .45s; }
 
 /* ---- section frame ---- */
 section { border-top: 1px solid var(--line); }

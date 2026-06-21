@@ -81,7 +81,7 @@
       </div>
 
       <!-- Animation / Placeholder Side -->
-      <div class="anim-side scroll-reveal reveal" style="padding-top: clamp(40px, 8vh, 100px);">
+      <div class="anim-side scroll-reveal reveal">
         
         <style>
           .db-mockup, .db-mockup * { box-sizing: border-box; }
@@ -91,19 +91,10 @@
             color: #FFFFFF; display: flex; flex-direction: column; overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); min-width: 0;
           }
-          .db-titlebar {
-            background: #2C2C2E; height: 44px; display: flex; align-items: center;
-            padding: 0 16px; border-bottom: 1px solid #3A3A3C; position: relative;
-            flex-shrink: 0; min-width: 0;
-          }
-          .db-dots { display: flex; gap: 8px; }
-          .db-dot { width: 12px; height: 12px; border-radius: 50%; }
-          .db-dot.r { background: #FF5F56; } .db-dot.y { background: #FFBD2E; } .db-dot.g { background: #27C93F; }
-          .db-title { position: absolute; left: 50%; transform: translateX(-50%); font-family: monospace; font-size: 13px; color: #8E8E93; white-space: nowrap; }
-          .db-body { display: flex; flex-direction: row; height: 500px; width: 100%; min-width: 0; }
+          .db-body { display: flex; flex-direction: row; height: auto; width: 100%; min-width: 0; }
           .db-sidebar {
             width: 180px; flex-shrink: 0; background: #242426; border-right: 1px solid #3A3A3C;
-            display: flex; flex-direction: column; overflow-y: auto; padding: 12px 0; min-width: 0;
+            display: flex; flex-direction: column; padding: 12px 0; min-width: 0;
           }
           .db-table-btn {
             display: flex; align-items: center; justify-content: space-between;
@@ -115,8 +106,8 @@
           .db-table-btn.active { background: rgba(10, 132, 255, 0.15); color: #FFFFFF; border-left: 2px solid #0A84FF; }
           .db-table-btn-left { display: flex; align-items: center; gap: 8px; }
           .db-table-icon { width: 14px; height: 14px; opacity: 0.7; fill: none; stroke: currentColor; stroke-width: 2; flex-shrink: 0; }
-          .db-main { flex: 1; display: flex; flex-direction: column; background: #1C1C1E; overflow-y: auto; overflow-x: hidden; padding: 24px; min-width: 0; }
-          .db-query { font-family: monospace; font-size: 14px; padding-bottom: 20px; border-bottom: 1px solid #3A3A3C; margin-bottom: 24px; word-break: break-all; min-width: 0; }
+          .db-main { flex: 1; display: block; background: #1C1C1E; padding: 24px; min-width: 0; overflow-x: hidden; }
+          .db-query { font-family: monospace; font-size: 14px; padding-bottom: 20px; border-bottom: 1px solid #3A3A3C; margin-bottom: 24px; word-break: break-all; min-width: 0; display: block; }
           .db-keyword { color: #0A84FF; }
           .db-target-btn { background: transparent; border: none; padding: 0; font: inherit; color: #BF5AF2; cursor: none; transition: color 0.2s; outline: none; }
           .db-target-btn:hover, .db-target-btn:focus { color: #FFFFFF; text-decoration: underline; }
@@ -196,10 +187,6 @@
 
         <div class="db-mockup" id="db-mockup">
           <div class="sr-only" style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;">Interactive database explorer for Hospital DBMS schema.</div>
-          <div class="db-titlebar">
-            <div class="db-dots"><div class="db-dot r"></div><div class="db-dot y"></div><div class="db-dot g"></div></div>
-            <div class="db-title">hospital_dbms &middot; sqlite</div>
-          </div>
           <div class="db-body">
             <div class="db-sidebar" id="db-sidebar" role="tablist" aria-label="Database tables"></div>
             <div class="db-main" id="db-main" role="tabpanel" aria-live="polite">
