@@ -81,9 +81,15 @@
       </div>
 
       <!-- Animation / Placeholder Side -->
-      <div class="anim-side scroll-reveal reveal">
+      <div class="anim-side hospital-mockup-wrapper scroll-reveal reveal">
         
         <style>
+          @media (min-width: 951px) {
+            .hospital-mockup-wrapper {
+              top: 50vh !important;
+              transform: translateY(-50%) !important;
+            }
+          }
           .db-mockup, .db-mockup * { box-sizing: border-box; }
           .db-mockup {
             width: 100%; max-width: 100%; background: #1C1C1E; border-radius: 12px;
@@ -91,7 +97,7 @@
             color: #FFFFFF; display: flex; flex-direction: column; overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5); min-width: 0;
           }
-          .db-body { display: flex; flex-direction: row; height: auto; width: 100%; min-width: 0; }
+          .db-body { display: flex; flex-direction: row; height: 450px; width: 100%; min-width: 0; }
           .db-sidebar {
             width: 180px; flex-shrink: 0; background: #242426; border-right: 1px solid #3A3A3C;
             display: flex; flex-direction: column; padding: 12px 0; min-width: 0;

@@ -300,19 +300,17 @@ body.in .hero .d4, .in.d4 { transition-delay: .35s; }
 }
 .split-layout .anim-side {
   position: sticky;
-  top: 50vh;
-  transform: translateY(-50%);
+  top: 120px;
 }
 @media (max-width: 950px) {
   .split-layout {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 40px;
   }
   .split-layout .anim-side {
     position: static;
     width: 100%;
-    transform: none;
   }
   .split-layout .text-side {
     width: 100%;
