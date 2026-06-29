@@ -175,11 +175,12 @@
     <section id="contact" class="contact-section" style="padding: clamp(60px, 10vh, 120px) 0;">
       <div class="wrap">
         <h2><span class="tr">Hadi konuşalım!</span><span class="en">Let's talk!</span></h2>
-        <form class="contact-form">
-          <input type="text" placeholder="İsim" id="formName" required>
-          <input type="email" placeholder="E-posta" id="formEmail" required>
-          <textarea placeholder="Mesajınız" rows="5" id="formMsg" required></textarea>
-          <button type="submit"><span class="tr">GÖNDER</span><span class="en">SEND</span></button>
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xvzjqzlz" method="POST">
+          <input type="text" placeholder="İsim" id="formName" name="name" required>
+          <input type="email" placeholder="E-posta" id="formEmail" name="email" required>
+          <textarea placeholder="Mesajınız" rows="5" id="formMsg" name="message" required></textarea>
+          <button type="submit" id="formSubmitBtn"><span class="tr">GÖNDER</span><span class="en">SEND</span></button>
+          <p id="formStatus" style="margin-top: 15px; font-size: 0.85rem; display: none;"></p>
         </form>
         <div class="social-links" style="display: flex; justify-content: center; gap: 40px; margin-top: 60px;">
           <a href="https://www.linkedin.com/in/omer-harmankaya/" target="_blank">LNKDN ↗</a>
@@ -315,6 +316,57 @@
     el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
   });
+
+  // Contact Form Submission
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+
+
+      const formSubmitBtn = document.getElementById('formSubmitBtn');
+      const originalBtnContent = formSubmitBtn.innerHTML;
+      formSubmitBtn.innerHTML = document.documentElement.lang === 'tr' ? '<span class="tr">GÖNDERİLİYOR...</span>' : '<span class="en">SENDING...</span>';
+      formSubmitBtn.disabled = true;
+
+      const data = new FormData(e.target);
+      fetch(e.target.action, {
+        method: contactForm.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          formStatus.innerHTML = document.documentElement.lang === 'tr' ? 'Mesajınız başarıyla gönderildi!' : 'Your message has been sent successfully!';
+          formStatus.style.color = '#4CAF50';
+          formStatus.style.display = 'block';
+          contactForm.reset();
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              formStatus.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+            } else {
+              formStatus.innerHTML = document.documentElement.lang === 'tr' ? 'Gönderim sırasında bir hata oluştu.' : 'Oops! There was a problem submitting your form';
+            }
+            formStatus.style.color = '#F44336';
+            formStatus.style.display = 'block';
+          })
+        }
+      }).catch(error => {
+        formStatus.innerHTML = document.documentElement.lang === 'tr' ? 'Gönderim sırasında bir hata oluştu.' : 'Oops! There was a problem submitting your form';
+        formStatus.style.color = '#F44336';
+        formStatus.style.display = 'block';
+      }).finally(() => {
+        formSubmitBtn.innerHTML = originalBtnContent;
+        formSubmitBtn.disabled = false;
+        setTimeout(() => { formStatus.style.display = 'none'; }, 5000);
+      });
+    });
+  }
 </script>
 </body>
 </html>
