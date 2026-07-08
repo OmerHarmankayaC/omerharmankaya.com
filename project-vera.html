@@ -42,9 +42,9 @@
     position: absolute; top: -2px; left: 50%; transform: translateX(-50%);
     width: 140px; height: 25px; background: #1a1a1a; border-radius: 0 0 20px 20px; z-index: 10;
   }
-  .slider-track { display: flex; height: 100%; width: 100%; will-change: transform; }
-  .slide { flex: 0 0 100%; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; }
-  .slide img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; border-radius: 28px; }
+  .slider-track { display: flex; height: 100%; width: 100%; will-change: transform; background: #ffffff; }
+  .slide { flex: 0 0 100%; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; background: #ffffff; }
+  .slide img { width: 100%; height: calc(100% - 46px); margin-top: 46px; object-fit: cover; object-position: top center; pointer-events: none; border-radius: 0 0 28px 28px; }
   
   .status-bar {
     position: absolute; top: 0; left: 0; width: 100%; height: auto; z-index: 9;
@@ -54,13 +54,17 @@
     display: flex; justify-content: center; gap: 20px; margin-top: 30px;
   }
   .slider-controls button {
-    background: transparent; border: 1px solid var(--line); color: var(--muted);
+    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff;
     width: 44px; height: 44px; border-radius: 50%; font-size: 1.2rem;
-    cursor: none; transition: color 0.3s, border-color 0.3s;
+    cursor: none; transition: background 0.3s, border-color 0.3s;
     display: flex; align-items: center; justify-content: center; padding-bottom: 2px;
   }
   .slider-controls button:hover {
-    color: var(--ink); border-color: var(--ink);
+    background: rgba(255, 255, 255, 0.15); border-color: #fff;
+  }
+  .slider-hint {
+    text-align: center; margin-top: 15px; font-size: 0.75rem; 
+    color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
   }
 
   .visit-site-btn {
@@ -159,6 +163,10 @@
             <div class="slider-controls">
               <button id="vera-prev" aria-label="Önceki Ekran">←</button>
               <button id="vera-next" aria-label="Sonraki Ekran">→</button>
+            </div>
+            <div class="slider-hint">
+              <span class="tr">Kaydırarak İnceleyin</span>
+              <span class="en">Swipe to Explore</span>
             </div>
           </div>
         </div>
