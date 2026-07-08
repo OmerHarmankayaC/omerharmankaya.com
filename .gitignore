@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 *.mov
+# Vercel
+.vercel
+.env

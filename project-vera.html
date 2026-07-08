@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="styles.css">
 <style>
   .proj-hero { padding-top: clamp(100px, 15vh, 200px); padding-bottom: clamp(60px, 10vh, 100px); }
-  .proj-hero .wrap { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 40px; }
+  .proj-hero .wrap { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: nowrap; gap: 40px; }
   .proj-hero h1 { font-weight: 300; font-size: clamp(3.5rem, 10vw, 9rem); line-height: 0.95; letter-spacing: -0.05em; text-transform: uppercase; margin-bottom: 0; }
   .proj-meta { display: flex; gap: 40px; margin-bottom: 15px; }
   .proj-meta .col .label { font-size: 0.65rem; color: var(--faint); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.1em; }
@@ -62,6 +62,27 @@
   .slider-controls button:hover {
     color: var(--ink); border-color: var(--ink);
   }
+
+  .visit-site-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 28px;
+    background: var(--ink);
+    color: var(--bg);
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 4px;
+    margin-top: 30px;
+    transition: background 0.3s, transform 0.3s;
+    text-decoration: none;
+  }
+  .visit-site-btn:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+  }
   
   .cursor-follower.dragging { transform: scale(0.5); background-color: var(--accent); border-color: var(--accent); }
 </style>
@@ -81,10 +102,15 @@
     <section class="proj-hero">
       <div class="wrap reveal">
         <h1>Vera<br>Finance</h1>
-        <div class="proj-meta">
-          <div class="col"><div class="label"><span class="tr">ROL</span><span class="en">ROLE</span></div><div class="val"><span class="tr">Ürün Yönü & Sistem</span><span class="en">Product Direction & System</span></div></div>
-          <div class="col"><div class="label">PLATFORM</div><div class="val">iOS</div></div>
-          <div class="col"><div class="label"><span class="tr">YIL</span><span class="en">YEAR</span></div><div class="val">2025</div></div>
+        <div class="proj-info-group">
+          <div class="proj-meta">
+            <div class="col"><div class="label"><span class="tr">ROL</span><span class="en">ROLE</span></div><div class="val"><span class="tr">Ürün Yönü & Sistem</span><span class="en">Product Direction & System</span></div></div>
+            <div class="col"><div class="label">PLATFORM</div><div class="val">iOS</div></div>
+            <div class="col"><div class="label"><span class="tr">YIL</span><span class="en">YEAR</span></div><div class="val">2025</div></div>
+          </div>
+          <a href="https://vera.staticorbit.dev/" target="_blank" class="visit-site-btn" style="margin-top: 0;">
+            <span class="tr">Siteyi Ziyaret Et ↗</span><span class="en">Visit Site ↗</span>
+          </a>
         </div>
       </div>
     </section>
@@ -140,7 +166,7 @@
     </section>
 
     <div class="divider-image-wrap reveal scroll-reveal" style="margin-bottom: clamp(60px, 10vh, 120px);">
-      <img src="ara_resim/SanFrancisco_TwinPeaks.png" class="divider-image" style="opacity: 1; border-radius: 0; height: auto; max-height: none;" alt="San Francisco Twin Peaks" loading="lazy">
+      <img src="ara_resim/Oregon_HacetaLightHouse.JPG" class="divider-image" style="opacity: 1; border-radius: 0; height: auto; max-height: none;" alt="Oregon Haceta LightHouse" loading="lazy">
     </div>
 
     <a href="project-ieee.html" class="next-proj scroll-reveal reveal">
