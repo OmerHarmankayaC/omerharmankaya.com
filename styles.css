@@ -275,8 +275,34 @@ header.topbar-carl:not(:has(.nav-links)) > button:hover {
 .hero-image { width: 100%; height: clamp(300px, 50vh, 600px); object-fit: cover; border-radius: 4px; }
 
 /* divider image */
-.divider-image-wrap { width: 100%; max-width: 100%; margin: clamp(60px, 10vh, 140px) 0; }
+.divider-image-wrap { width: 100%; max-width: 100%; margin: clamp(60px, 10vh, 140px) 0; position: relative; }
 .divider-image { width: 100%; height: clamp(400px, 60vh, 800px); object-fit: cover; }
+
+/* photo credit watermark */
+.photo-credit {
+  position: absolute;
+  bottom: clamp(12px, 2vw, 20px);
+  right: clamp(12px, 2vw, 20px);
+  font-size: clamp(0.68rem, 1vw, 0.75rem);
+  font-family: monospace;
+  color: rgba(255, 255, 255, 0.45);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 4px 8px;
+  border-radius: 3px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+  user-select: none;
+}
+.divider-image-wrap:hover .photo-credit,
+section:hover > .photo-credit {
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.55);
+}
 
 
 /* page-load and scroll reveal */
