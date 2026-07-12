@@ -276,7 +276,7 @@ header.topbar-carl:not(:has(.nav-links)) > button:hover {
 
 /* divider image */
 .divider-image-wrap { width: 100%; max-width: 100%; margin: clamp(60px, 10vh, 140px) 0; position: relative; }
-.divider-image { width: 100%; height: clamp(400px, 60vh, 800px); object-fit: cover; }
+.divider-image { width: 100%; height: auto; max-height: none; display: block; }
 
 /* photo credit watermark */
 .photo-credit {
@@ -424,6 +424,26 @@ section { border-top: 1px solid var(--line); }
 .contact .links a:hover, .contact .links a:focus-visible { color: var(--ink); }
 .contact .links a:hover::after, .contact .links a:focus-visible::after { width: 100%; }
 
+.view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  background: var(--ink);
+  color: var(--bg);
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  border-radius: 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.view-all-btn:hover {
+  transform: translateY(-4px);
+  background: #ffffff;
+}
+
 /* ---- footer ---- */
 .foot { border-top: 1px solid var(--line); background-color: var(--bg); }
 .foot .big {
@@ -453,14 +473,15 @@ a, button, input, textarea, .project-block { cursor: none; }
   left: 0;
   width: 14px;
   height: 14px;
-  border: 1.5px solid var(--ink);
+  border: 1.5px solid #fff;
+  mix-blend-mode: difference;
   pointer-events: none;
   z-index: 9999;
   will-change: transform;
   transition: background-color 0.2s ease;
 }
 .cursor-follower.hovered {
-  background-color: var(--ink);
+  background-color: #fff;
 }
 
 /* Language Toggle Logic */

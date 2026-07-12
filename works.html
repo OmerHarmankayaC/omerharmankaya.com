@@ -15,9 +15,9 @@
 
   <header class="topbar-carl">
     <div class="nav-links">
-      <a href="#about"><span class="tr">Hakkımda</span><span class="en">About</span></a>
+      <a href="index.html#about"><span class="tr">Hakkımda</span><span class="en">About</span></a>
       <a href="works.html"><span class="tr">İşler</span><span class="en">Work</span></a>
-      <a href="#contact"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+      <a href="index.html#contact"><span class="tr">İletişim</span><span class="en">Contact</span></a>
       <button id="lang-toggle" class="lang-toggle">ENGLISH</button>
     </div>
     <div class="mobile-topbar">
@@ -34,47 +34,25 @@
 
   <div class="mobile-menu-overlay" id="mobile-menu">
     <div class="mobile-menu-content">
-      <a href="#about" class="mobile-nav-link"><span class="tr">Hakkımda</span><span class="en">About</span></a>
+      <a href="index.html#about" class="mobile-nav-link"><span class="tr">Hakkımda</span><span class="en">About</span></a>
       <a href="works.html" class="mobile-nav-link"><span class="tr">İşler</span><span class="en">Work</span></a>
-      <a href="#contact" class="mobile-nav-link"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+      <a href="index.html#contact" class="mobile-nav-link"><span class="tr">İletişim</span><span class="en">Contact</span></a>
 
     </div>
   </div>
 
   <main>
-    <!-- HERO -->
-    <section class="hero" id="top" style="overflow: hidden;">
-      <div class="wrap" style="text-align: center; display: flex; justify-content: center;">
-        <h1 class="reveal d1" style="font-size: clamp(3.2rem, 11vw, 12.5rem); line-height: 1; margin: 0; letter-spacing: -0.05em; padding-bottom: 40px; margin-right: -0.05em; white-space: nowrap;">Ömer Harmankaya</h1>
-      </div>
-    </section>
-
-    <!-- FULL WIDTH IMAGE -->
-    <section class="scroll-reveal" style="position: relative; width: 100vw; margin-left: calc(-50vw + 50%); margin-bottom: clamp(60px, 12vh, 120px);">
-      <img src="ara_resim/Columbia_River.JPG" style="width: 100%; height: auto; display: block;" alt="Columbia River" loading="lazy" decoding="async">
-      <span class="photo-credit">[Ömer Harmankaya - 2025]</span>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="about-section">
-      <div class="wrap sec about">
-        <div class="sec-head">
-          <div class="label"><span class="tr">Kim</span><span class="en">Who</span></div>
-          <div>
-            <p class="tr">Kod yazmaktan çok, bir şeyin nasıl kurulacağına karar verip onu çalışır hâle getirmeyi seviyorum.</p>
-            <p class="en">I'm less interested in writing the code than in deciding how something should be built — and then getting it to actually work.</p>
-            
-            <p class="col2 tr">Ankara'da büyüdüm, TED Üniversitesi'nde okuyorum. Endüstri mühendisliği tarafı bana giderek daha yakın geliyor — işin gerçek dünyada çalışan kısmı. Henüz yolun başındayım; bu site de o yolun şu ana kadarki hâli.</p>
-            <p class="col2 en">I grew up in Ankara and study at TED University. Industrial engineering is the side that keeps drawing me in — the part where things have to hold up in the real world. I'm still early on; this site is where that road stands so far.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- WORK -->
-    <section id="work" class="works-section">
+    <section id="work" class="works-section" style="padding-top: clamp(100px, 15vh, 200px);">
       <div class="wrap sec">
-        <div class="label section-label"><span class="tr">Seçili İşler</span><span class="en">Selected Work</span></div>
+        <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 40px; transition: color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--muted)'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span class="tr">GERİ DÖN</span><span class="en">GO BACK</span>
+        </a>
+        <div class="label section-label"><span class="tr">Tüm İşler</span><span class="en">All Work</span></div>
 
         <!-- Project RAG -->
         <a href="project-rag.html" class="project-block reveal scroll-reveal">
@@ -118,57 +96,37 @@
             </div>
         </a>
 
-        <div style="text-align: center; margin-top: 80px; margin-bottom: 20px;" class="reveal scroll-reveal">
-          <a href="works.html" class="view-all-btn">
-            <span class="tr">TÜMÜNÜ GÖR</span><span class="en">VIEW ALL</span>
-          </a>
-        </div>
+        <!-- Project 3 -->
+        <a href="project-roomerang.html" class="project-block reveal scroll-reveal">
+            <div class="project-info">
+                <h3>Roomerang</h3>
+                <div class="tags"><span class="tr">Tasarım · 2026</span><span class="en">Design · 2026</span></div>
+                <p class="desc tr">SENG 214 dersi için beş kişilik bir ekiple tasarladığımız otel rezervasyon sistemi. Tasarım ve dokümantasyon tarafını ben üstlendim.</p>
+                <p class="desc en">A hotel reservation system designed with a five-person team for a software engineering course. I handled the design and documentation.</p>
+                <span class="view-details"><span class="tr">Projeyi İncele ↗</span><span class="en">View Project ↗</span></span>
+            </div>
+            <div class="project-images">
+                <img src="proje_resim/Roomerang/Roomerang.png?v=3" alt="Roomerang" loading="lazy" decoding="async" style="width:100%; height:auto; border-radius:2px; display:block;">
+            </div>
+        </a>
+
+        <!-- Project 4 -->
+        <a href="project-hospital.html" class="project-block reveal scroll-reveal">
+            <div class="project-info">
+                <h3>Hospital DBMS</h3>
+                <div class="tags"><span class="tr">Veritabanı · 2025</span><span class="en">Database · 2025</span></div>
+                <p class="desc tr">Bir hastanenin işleyişini taşıyan ilişkisel veritabanı. Verinin nasıl tutulacağını — şemayı ve ilişkileri — ben tasarladım.</p>
+                <p class="desc en">A relational database for running a hospital. I designed how the data is held — the schema and the relations.</p>
+                <span class="view-details"><span class="tr">Projeyi İncele ↗</span><span class="en">View Project ↗</span></span>
+            </div>
+            <div class="project-images">
+                <img src="proje_resim/Hospital_DBMS/hospital-dbms-thumbnail.svg" alt="Hospital DBMS" loading="lazy" decoding="async" style="width:100%; height:auto; border-radius:2px; display:block;">
+            </div>
+        </a>
 
       </div>
     </section>
 
-    <!-- ANOTHER DIVIDER IMAGE -->
-    <div class="divider-image-wrap reveal scroll-reveal">
-        <img src="ara_resim/AstoriaBirds.JPG" alt="Astoria Birds" class="divider-image" loading="lazy" decoding="async">
-        <span class="photo-credit">[Ömer Harmankaya - 2025]</span>
-    </div>
-
-
-
-    <!-- EXPERIENCE -->
-    <section id="exp">
-      <div class="wrap sec">
-        <div class="sec-head">
-          <div class="label"><span class="tr">Deneyim</span><span class="en">Experience</span></div>
-          <table class="exp">
-            <tr><td class="role"><span class="tr">BT Stajyeri</span><span class="en">IT Intern</span></td><td class="org">BOTAŞ</td><td class="yr"><span class="tr">Ağustos 2026</span><span class="en">August 2026</span></td></tr>
-            <tr><td class="role"><span class="tr">Planlama Departmanı Stajyeri</span><span class="en">Planning Dept. Intern</span></td><td class="org">Akdaş Döküm</td><td class="yr"><span class="tr">Temmuz 2026</span><span class="en">July 2026</span></td></tr>
-            <tr><td class="role"><span class="tr">Proje Öğrencisi</span><span class="en">Project Student</span></td><td class="org"><span class="tr">Microsoft Türkiye (Uzaktan)</span><span class="en">Microsoft Turkey (Remote)</span></td><td class="yr"><span class="tr">Haziran 2026</span><span class="en">June 2026</span></td></tr>
-            <tr><td class="role"><span class="tr">Yazılım Geliştirme Stajyeri</span><span class="en">Software Dev Intern</span></td><td class="org"><span class="tr">Software Persona (Uzaktan)</span><span class="en">Software Persona (Remote)</span></td><td class="yr"><span class="tr">Mayıs 2026</span><span class="en">May 2026</span></td></tr>
-            <tr><td class="role"><span class="tr">Work &amp; Travel</span><span class="en">Work &amp; Travel</span></td><td class="org"><span class="tr">Oregon, ABD</span><span class="en">Oregon, USA</span></td><td class="yr">2025</td></tr>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact-section" style="padding: clamp(60px, 10vh, 120px) 0;">
-      <div class="wrap">
-        <h2><span class="tr">Hadi konuşalım!</span><span class="en">Let's talk!</span></h2>
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xvzjqzlz" method="POST">
-          <input type="text" placeholder="İsim" id="formName" name="name" required>
-          <input type="email" placeholder="E-posta" id="formEmail" name="email" required>
-          <textarea placeholder="Mesajınız" rows="5" id="formMsg" name="message" required></textarea>
-          <button type="submit" id="formSubmitBtn"><span class="tr">GÖNDER</span><span class="en">SEND</span></button>
-          <p id="formStatus" style="margin-top: 15px; font-size: 0.85rem; display: none;"></p>
-        </form>
-        <div class="social-links" style="display: flex; justify-content: center; gap: 40px; margin-top: 60px;">
-          <a href="https://www.linkedin.com/in/omer-harmankaya/" target="_blank">LNKDN ↗</a>
-          <a href="https://github.com/OmerHarmankayaC" target="_blank">GITHUB ↗</a>
-          <a href="#" onclick="navigator.clipboard.writeText('omr.harmankaya@gmail.com').then(() => alert('Mail adresi kopyalandı!')); return false;">MAIL ↗</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="foot">

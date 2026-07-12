@@ -86,8 +86,12 @@
         <style>
           @media (min-width: 951px) {
             .hospital-mockup-wrapper {
-              top: 50vh !important;
-              transform: translateY(-50%) !important;
+              position: sticky !important;
+              top: 73px !important;
+              height: calc(100vh - 73px) !important;
+              display: flex !important;
+              align-items: center !important;
+              justify-content: center !important;
             }
           }
           .db-mockup, .db-mockup * { box-sizing: border-box; }
