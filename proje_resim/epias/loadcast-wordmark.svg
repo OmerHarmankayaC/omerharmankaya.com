@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 96" width="320" height="96">
+  <g>
+    <path d="M6,74 L20,32 L36,54 L50,16 L66,46 L90,36"
+          fill="none" stroke="#f2f0ea" stroke-width="7"
+          stroke-linecap="square" stroke-linejoin="miter"/>
+    <path d="M6,80 L20,40 L36,60 L50,24 L66,52 L90,44"
+          fill="none" stroke="#d1543d" stroke-width="6"
+          stroke-linecap="square" stroke-linejoin="miter"
+          stroke-dasharray="8 8"/>
+  </g>
+  <text x="112" y="63" font-family="Inter, -apple-system, 'Segoe UI', sans-serif"
+        font-weight="300" font-size="46" fill="#f2f0ea" letter-spacing="-0.5">Loadcast</text>
+</svg>
