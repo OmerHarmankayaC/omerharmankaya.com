@@ -81,6 +81,26 @@
       gap: 40px;
     }
   }
+
+  .typing-indicator {
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+    height: 18px;
+  }
+  .typing-indicator span {
+    width: 6px;
+    height: 6px;
+    background-color: #ccc;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+  }
+  .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+  .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+  @keyframes bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+  }
 </style>
   <link rel="icon" type="image/png" href="favicon.png">
 </head>
@@ -153,6 +173,10 @@
             <input type="text" id="vera-qa-input" placeholder="Type a question..." maxlength="1000" style="flex: 1; padding: 10px; background: #111; border: 1px solid var(--line); color: #fff; border-radius: 4px; font-family: inherit;" required>
             <button type="submit" id="vera-qa-submit" style="padding: 10px 15px; background: var(--ink); color: var(--bg); border: none; border-radius: 4px; cursor: pointer; font-weight: 500; font-family: inherit;">Send</button>
           </form>
+          <div style="margin-top: 15px; font-size: 0.75rem; color: var(--faint); text-align: center;">
+            <span class="tr">RAG sisteminin yapısı gereği ilk sorunun cevaplanması biraz uzun sürebilir.</span>
+            <span class="en">Due to the nature of the RAG system, the first question may take a bit longer to answer.</span>
+          </div>
         </div>
       </div>
     </section>
@@ -305,19 +329,40 @@
       qaSubmitBtn.textContent = '...';
       qaSubmitBtn.style.opacity = '0.7';
 
-      chatHistory.push({ role: 'assistant', content: 'Thinking...' });
+      chatHistory.push({ role: 'assistant', content: '<div class="typing-indicator"><span></span><span></span><span></span></div>' });
       renderMessages();
 
-      try {
-        const response = await fetch('/api/vera-qa', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ question, history: [] })
+      const fetchAnswer = async () => {
+        try {
+          const response = await fetch('/api/vera-qa', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question, history: [] })
+          });
+          const data = await response.json();
+          return { response, data };
+        } catch (err) {
+          return { error: err };
+        }
+      };
+
+      let result = await fetchAnswer();
+      
+      // Retry once for the first question in case of cold-start timeouts
+      const isFirstQuestion = chatHistory.filter(m => m.role === 'user').length === 1;
+      if (isFirstQuestion && (result.error || !result.response.ok)) {
+        result = await fetchAnswer();
+      }
+
+      chatHistory.pop(); // remove "Thinking..."
+
+      if (result.error) {
+        chatHistory.push({
+          role: 'assistant',
+          content: 'Something went wrong. Please try again.'
         });
-
-        const data = await response.json();
-        chatHistory.pop(); // remove "Thinking..."
-
+      } else {
+        const { response, data } = result;
         if (response.ok && data.answer) {
           chatHistory.push({
             role: 'assistant',
@@ -330,18 +375,12 @@
             content: data.error?.message || 'Something went wrong. Please try again.'
           });
         }
-      } catch (err) {
-        chatHistory.pop();
-        chatHistory.push({
-          role: 'assistant',
-          content: 'Something went wrong. Please try again.'
-        });
-      } finally {
-        qaSubmitBtn.disabled = false;
-        qaSubmitBtn.textContent = 'Send';
-        qaSubmitBtn.style.opacity = '1';
-        renderMessages();
       }
+
+      qaSubmitBtn.disabled = false;
+      qaSubmitBtn.textContent = 'Send';
+      qaSubmitBtn.style.opacity = '1';
+      renderMessages();
     });
   }
 </script>
