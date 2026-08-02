@@ -17,7 +17,7 @@ export function EpiasChart() {
   const lang = useLanguage();
 
   useEffect(() => {
-    fetch('https://energy.omerharmankaya.com/api/embed/series?days=8&granularity=hourly')
+    fetch('https://loadcast.omerharmankaya.com/api/embed/series?days=8&granularity=hourly')
       .then(res => res.json())
       .then(json => {
         const chartData = json.data.map(d => {

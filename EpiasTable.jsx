@@ -16,7 +16,7 @@ export function EpiasTable() {
   const lang = useLanguage();
 
   useEffect(() => {
-    fetch('https://energy.omerharmankaya.com/api/embed/accuracy-table')
+    fetch('https://loadcast.omerharmankaya.com/api/embed/accuracy-table')
       .then(res => res.json())
       .then(json => {
         setTableData(json);
