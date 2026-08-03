@@ -1,10 +1,8 @@
 # Site Metinleri — TR & EN
 
-Portfolyo sitesinin (`index.html` + proje detay sayfaları) tüm içerik metinleri.
-Vera ve IEEE'nin "Sonuç" bölümleri dürüst tona çekildi; Roomerang ve Hospital DBMS sayfaları eklendi; zamir tutarlılığı (ekip işi → *biz*, kişisel pay → *ben*) ve dolgu temizliği uygulandı.
-
+Portfolyo sitesinin (`index.html`, `works.html` ve proje detay sayfaları) tüm içerik metinleri.
 Sayfa sırası / "Sonraki Proje" döngüsü:
-**Vera → IEEE TEDU → Roomerang → Hospital DBMS → (başa) Vera**
+**EPİAŞ Dashboard → RAG Assistant → Vera → IEEE TEDU → Roomerang → Hospital DBMS → (başa)**
 
 ---
 ---
@@ -27,44 +25,34 @@ Sayfa sırası / "Sonraki Proje" döngüsü:
 
 ### İşler (Seçili İşler)
 
-**1. Vera-Finance**
+**1. EPİAŞ Dashboard**
+- Etiketler: Veri & ML · Web · 2026
+- Açıklama: Gerçek zamanlı Türkiye elektrik piyasası verisiyle çalışan ve resmi tahminleri geçen makine öğrenmesi tabanlı elektrik yükü tahmin sistemi.
+- Link: Projeyi İncele ↗
+
+**2. RAG Assistant**
+- Etiketler: Yapay Zekâ · Web · 2026
+- Açıklama: Microsoft Foundry Local ve SQLite altyapısıyla tamamen çevrimdışı çalışan bir Yerel RAG soru-cevap asistanı. Vektör arama, embedding ve LLM entegrasyonu süreçlerini uçtan uca yöneterek geliştirdim.
+- Link: Projeyi İncele ↗
+
+**3. Vera-Finance**
 - Etiketler: Fintech · iOS · 2025
 - Açıklama: App Store'da yayında bir kişisel finans uygulaması. Yapay zekâ ile fatura okuma, stok takibi ve bütçe yönetimi. Ürün yönünü ve sistem kurgusunu ben yönettim.
 - Link: Projeyi İncele ↗
 
-**2. IEEE TEDU**
-- Etiketler: Web · Canlı · 2026
-- Açıklama: TED Üniversitesi IEEE öğrenci kolu için çok sayfalı, blog'lu bir web sitesi. Tasarımdan deploy'a kadar kuruldu ve şu an canlı yayında.
-- Link: Projeyi İncele ↗
-
-**3. Roomerang**
-- Etiketler: Tasarım · 2026
-- Açıklama: SENG 214 dersi için beş kişilik bir ekiple tasarladığımız otel rezervasyon sistemi. Tasarım ve dokümantasyon tarafını ben üstlendim.
-- Link: Projeyi İncele ↗
-
-**4. Hospital DBMS**
-- Etiketler: Veritabanı · 2025
-- Açıklama: Bir hastanenin işleyişini taşıyan ilişkisel veritabanı. Verinin nasıl tutulacağını — şemayı ve ilişkileri — ben tasarladım.
-- Link: Projeyi İncele ↗
-
-### Ne Yapıyorum
-- Ürün yönü (Direction)
-- Sistem tasarımı (Systems)
-- Yapay zekâ entegrasyonu (AI)
-- Web geliştirme (Web)
-- Süreç tasarımı (Process)
+- Buton: TÜMÜNÜ GÖR (Tüm İşler sayfasına yönlendirir)
 
 ### Deneyim
-- Proje Okulu Katılımcısı | Microsoft AI Innovators | 2026
-- Stajyer | Software Persona (Uzaktan) | 2026
-- Planlama Stajı | Akdaş Döküm | 2026
-- BT Stajı | BOTAŞ | 2026
+- BT Stajyeri | BOTAŞ | Ağustos 2026
+- Planlama Departmanı Stajyeri | Akdaş Döküm | Temmuz 2026
+- Proje Öğrencisi | Microsoft Türkiye (Uzaktan) | Haziran 2026
+- Yazılım Geliştirme Stajyeri | Software Persona (Uzaktan) | Mayıs 2026
 - Work & Travel | Oregon, ABD | 2025
 
 ### İletişim
 - Hadi konuşalım!
 - Form alanları: İsim, E-posta, Mesajınız
-- Buton: GÖNDER
+- Buton: GÖNDER / GÖNDERİLİYOR... / Mesajınız başarıyla gönderildi! / Gönderim sırasında bir hata oluştu.
 - Linkler: LNKDN ↗, GITHUB ↗, MAIL ↗
 
 ### Alt Bilgi (Footer)
@@ -73,12 +61,99 @@ Sayfa sırası / "Sonraki Proje" döngüsü:
 
 ---
 
-## 2. Vera Finance (`project-vera.html`)
+## 2. Tüm İşler Sayfası (`works.html`)
+
+### Üst Navigasyon & Bağlantılar
+- Hakkımda
+- İşler
+- İletişim
+- GERİ DÖN
+- Tüm İşler (Başlık)
+
+### Projeler Listesi
+
+*(Yukarıdaki Ana sayfada yer alan projelerin detaylarına ek olarak şu projeler de yer alır:)*
+
+**4. IEEE TEDU**
+- Etiketler: Web · Canlı · 2026
+- Açıklama: TED Üniversitesi IEEE öğrenci kolu için çok sayfalı, blog'lu bir web sitesi. Tasarımdan deploy'a kadar kuruldu ve şu an canlı yayında.
+- Link: Projeyi İncele ↗
+
+**5. Roomerang**
+- Etiketler: Tasarım · 2026
+- Açıklama: SENG 214 dersi için beş kişilik bir ekiple tasarladığımız otel rezervasyon sistemi. Tasarım ve dokümantasyon tarafını ben üstlendim.
+- Link: Projeyi İncele ↗
+
+**6. Hospital DBMS**
+- Etiketler: Veritabanı · 2025
+- Açıklama: Bir hastanenin işleyişini taşıyan ilişkisel veritabanı. Verinin nasıl tutulacağını — şemayı ve ilişkileri — ben tasarladım.
+- Link: Projeyi İncele ↗
+
+---
+
+## 3. EPİAŞ Dashboard (`project-epias.html`)
 
 ### Üst Navigasyon
 - ← Geri Dön
 - Ömer Harmankaya
 - İletişim
+
+### Proje Künyesi
+- Başlık: EPİAŞ Dashboard
+- ROL: Veri & ML
+- PLATFORM: Web / API
+- YIL: 2026
+- Buton: Siteyi Ziyaret Et ↗
+
+### Proje Detayları
+
+**Vizyon**
+Gerçek bir veri kaynağıyla çalışan, sunucuda canlı yayında kalan ve EPİAŞ'ın kendi resmi yük tahminini geçebilen, ondan tamamen bağımsız bir makine öğrenmesi tahmin modeli kurmak.
+
+**Geliştirme Süreci**
+Proje, SQLite veritabanı, saatlik güncellenen bir Python veri pipeline'ı, FastAPI ile sunulan REST API ve Vite/React frontend kullanılarak geliştirildi. Geriye dönük tahmin üretimi yerine canlı test süreçleriyle "bilgi sızıntısı" (leakage) önlendi ve tatiller için özel bir profil eşleme mekanizması kullanıldı.
+
+**Sonuç**
+Tüm tatil ve hafta sonu segmentlerinde de dâhil olmak üzere, resmi tahminlere hiçbir girdi vermeden, resmi tahmini geçen (2.19 genel MAPE oranına sahip) bağımsız bir tahmin sistemi ortaya çıktı.
+
+### Diğer Elementler
+- Resim Alt yazısı: Şekil 1 — Yük eğrisi
+- Sonraki Proje: SONRAKİ PROJE | RAG Assistant ↗
+
+---
+
+## 4. RAG Assistant (`project-rag.html`)
+
+### Üst Navigasyon
+- ← Geri Dön
+- Ömer Harmankaya
+- İletişim
+
+### Proje Künyesi
+- Başlık: RAG Assistant
+- ROL: Yapay Zekâ & Sistem
+- PLATFORM: Web / Local
+- YIL: 2026
+- Buton: Siteyi Ziyaret Et ↗
+
+### Proje Detayları
+
+**Vizyon**
+Yapay zekâ odaklı proje programı kapsamında, tamamen çevrimdışı çalışabilen, güvenli ve hızlı bir soru-cevap asistanı (RAG) tasarlamak temel hedefimizdi. Veri gizliliğinin ön planda olduğu senaryolar için dışarıya veri sızdırmayan bir yerel sistem kurgulamam gerekiyordu.
+
+**Geliştirme Süreci**
+Sistemi Microsoft Foundry Local ve SQLite altyapısı üzerine inşa ettim. Vektör arama, embedding modelleri ve büyük dil modeli (LLM) entegrasyonu süreçlerinin tamamını uçtan uca kendim yöneterek, modern yapay zeka mimarilerini pratiğe döktüm.
+
+**Sonuç**
+Sonuçta, dış internet bağlantısına ihtiyaç duymadan kendi başına çalışabilen, yüksek performanslı bir asistan ortaya çıktı. Bu proje bana yapay zeka tabanlı bir ürünün çekirdekten itibaren nasıl geliştirileceğini uygulamalı olarak öğretti.
+
+### Diğer Elementler
+- Uyarı / Not: RAG sisteminin yapısı gereği ilk sorunun cevaplanması biraz uzun sürebilir.
+- Sonraki Proje: SONRAKİ PROJE | Vera Finance ↗
+
+---
+
+## 5. Vera Finance (`project-vera.html`)
 
 ### Proje Künyesi
 - Başlık: Vera Finance
@@ -98,17 +173,11 @@ Vera'yı kendi başına çalışan bir finans asistanı olarak kurguladım. Kull
 Vera, App Store'da yayınlanan ilk gerçek ürünüm oldu. Benim için asıl kazanç, bir fikrin tasarımından mağazada canlıya çıkmasına kadarki yolu görmek; hangi kararın nereye dokunduğunu yaşayarak öğrenmekti. Hem ürünün yönünü hem de arkasındaki kurguyu yönetmek, bana tek bir parçayı değil bütünü düşünmenin ne demek olduğunu gösterdi.
 
 ### Diğer Elementler
-- Slider yönlendirmeleri: ← (Önceki Ekran), → (Sonraki Ekran)
 - Sonraki Proje: SONRAKİ PROJE | IEEE TEDU ↗
 
 ---
 
-## 3. IEEE TEDU (`project-ieee.html`)
-
-### Üst Navigasyon
-- ← Geri Dön
-- Ömer Harmankaya
-- İletişim
+## 6. IEEE TEDU (`project-ieee.html`)
 
 ### Proje Künyesi
 - Başlık: IEEE TEDU
@@ -128,17 +197,11 @@ Kullanıcı deneyimini ön planda tutan, erişilebilir ve mobil uyumlu bir aray�
 Site şu an aktif olarak kullanılıyor ve topluluğun etkinliklerini, yazılarını tek bir yerden yönetebildiği bir merkez hâline geldi. Benim için bu proje, bir tasarımı fikir aşamasından gerçekten insanların kullandığı canlı bir şeye dönüştürmenin pratiğiydi.
 
 ### Diğer Elementler
-- Tarayıcı URL: ieee.tedu.edu.tr
 - Sonraki Proje: SONRAKİ PROJE | Roomerang ↗
 
 ---
 
-## 4. Roomerang (`project-roomerang.html`)
-
-### Üst Navigasyon
-- ← Geri Dön
-- Ömer Harmankaya
-- İletişim
+## 7. Roomerang (`project-roomerang.html`)
 
 ### Proje Künyesi
 - Başlık: Roomerang
@@ -158,17 +221,11 @@ Ekipte tasarım ve dokümantasyon tarafını üstlendim. Sistemin nasıl görün
 Bir yazılımın kodundan önce kararlarının geldiğini gördüm. İyi yazılmış bir gereksinim belgesi, sonradan çıkacak onlarca tartışmayı baştan kapatıyor. Bir ekipte herkesin aynı resmi görmesini sağlamanın, çoğu zaman tek başına üretmekten daha kıymetli olduğunu burada fark ettim.
 
 ### Diğer Elementler
-- Slider yönlendirmeleri: ← (Önceki Ekran), → (Sonraki Ekran)
 - Sonraki Proje: SONRAKİ PROJE | Hospital DBMS ↗
 
 ---
 
-## 5. Hospital DBMS (`project-hospital.html`)
-
-### Üst Navigasyon
-- ← Geri Dön
-- Ömer Harmankaya
-- İletişim
+## 8. Hospital DBMS (`project-hospital.html`)
 
 ### Proje Künyesi
 - Başlık: Hospital DBMS
@@ -188,8 +245,7 @@ Ben verinin nasıl tutulacağını tasarladım — yani veritabanı şemasını.
 İyi bir şema projenin geri kalanını sessizce kolaylaştırır; kötü bir şema ise her yerde kendini hissettirir. Veriyi baştan doğru modellemenin, sonradan yazılacak her sorguyu ve her ekranı şekillendirdiğini gördüm. Görünmeyen ama her şeyi taşıyan bir katmanı tasarlamak ilgimi çekti.
 
 ### Diğer Elementler
-- Slider yönlendirmeleri: ← (Önceki Ekran), → (Sonraki Ekran)
-- Sonraki Proje: SONRAKİ PROJE | Vera Finance ↗
+- Sonraki Proje: SONRAKİ PROJE | EPİAŞ Dashboard ↗
 
 ---
 ---
@@ -212,44 +268,34 @@ Ben verinin nasıl tutulacağını tasarladım — yani veritabanı şemasını.
 
 ### Work (Selected Work)
 
-**1. Vera-Finance**
+**1. EPİAŞ Dashboard**
+- Tags: Data & ML · Web · 2026
+- Description: A machine learning-based electricity load forecasting system working with real-time Turkish electricity market data, outperforming official estimates.
+- Link: View Project ↗
+
+**2. RAG Assistant**
+- Tags: AI · Web · 2026
+- Description: A fully offline Local RAG Q&A assistant built with Microsoft Foundry Local and SQLite. I managed the entire development process end-to-end, integrating vector search, embedding, and LLMs.
+- Link: View Project ↗
+
+**3. Vera-Finance**
 - Tags: Fintech · iOS · 2025
 - Description: A personal finance app, live on the App Store. AI-based receipt reading, stock tracking, and budgeting. I led the product direction and the system behind it.
 - Link: View Project ↗
 
-**2. IEEE TEDU**
-- Tags: Web · Live · 2026
-- Description: A multi-page site with a blog for TED University's IEEE student branch. Built from design through deployment, and currently live.
-- Link: View Project ↗
-
-**3. Roomerang**
-- Tags: Design · 2026
-- Description: A hotel reservation system designed with a five-person team for a software engineering course. I handled the design and documentation.
-- Link: View Project ↗
-
-**4. Hospital DBMS**
-- Tags: Database · 2025
-- Description: A relational database for running a hospital. I designed how the data is held — the schema and the relations.
-- Link: View Project ↗
-
-### What I Do
-- Product direction
-- Systems design
-- AI integration
-- Web development
-- Process design
+- Button: VIEW ALL (Navigates to all works page)
 
 ### Experience
-- Project School Participant | Microsoft AI Innovators | 2026
-- Intern | Software Persona (Remote) | 2026
-- Planning Intern | Akdaş Döküm | 2026
-- IT Intern | BOTAŞ | 2026
+- IT Intern | BOTAŞ | August 2026
+- Planning Dept. Intern | Akdaş Döküm | July 2026
+- Project Student | Microsoft Turkey (Remote) | June 2026
+- Software Dev Intern | Software Persona (Remote) | May 2026
 - Work & Travel | Oregon, USA | 2025
 
 ### Contact
 - Let's talk!
 - Form fields: Name, Email, Your message
-- Button: SEND
+- Button: SEND / SENDING... / Your message has been sent successfully! / Oops! There was a problem submitting your form
 - Links: LNKDN ↗, GITHUB ↗, MAIL ↗
 
 ### Footer
@@ -258,12 +304,99 @@ Ben verinin nasıl tutulacağını tasarladım — yani veritabanı şemasını.
 
 ---
 
-## 2. Vera Finance (`project-vera.html`)
+## 2. All Work Page (`works.html`)
+
+### Top Navigation & Links
+- About
+- Work
+- Contact
+- GO BACK
+- All Work (Title)
+
+### Projects List
+
+*(In addition to the projects above from the homepage, the following projects are listed:)*
+
+**4. IEEE TEDU**
+- Tags: Web · Live · 2026
+- Description: A multi-page site with a blog for TED University's IEEE student branch. Built from design through deployment, and currently live.
+- Link: View Project ↗
+
+**5. Roomerang**
+- Tags: Design · 2026
+- Description: A hotel reservation system designed with a five-person team for a software engineering course. I handled the design and documentation.
+- Link: View Project ↗
+
+**6. Hospital DBMS**
+- Tags: Database · 2025
+- Description: A relational database for running a hospital. I designed how the data is held — the schema and the relations.
+- Link: View Project ↗
+
+---
+
+## 3. EPİAŞ Dashboard (`project-epias.html`)
 
 ### Top Navigation
 - ← Back
 - Ömer Harmankaya
 - Contact
+
+### Project Credits
+- Title: EPİAŞ Dashboard
+- ROLE: Data & ML
+- PLATFORM: Web / API
+- YEAR: 2026
+- Button: Visit Site ↗
+
+### Project Details
+
+**Vision**
+Building a fully independent machine learning forecasting model that works with a real data source, stays live on a server, and outperforms EPİAŞ's official load forecast.
+
+**Development**
+The project was built using an SQLite database, an hourly updated Python data pipeline, a REST API served with FastAPI, and a Vite/React frontend. Leakage was prevented through live testing rather than backfill generation, and a special profile matching mechanism was used for holidays.
+
+**Result**
+The result is an independent forecasting system (with an overall MAPE of 2.19) that outperforms the official forecast in all holiday and weekend segments, without any input from official forecasts.
+
+### Other Elements
+- Image Caption: Figure 1 — Load curve
+- Next Project: NEXT PROJECT | RAG Assistant ↗
+
+---
+
+## 4. RAG Assistant (`project-rag.html`)
+
+### Top Navigation
+- ← Back
+- Ömer Harmankaya
+- Contact
+
+### Project Credits
+- Title: RAG Assistant
+- ROLE: AI & System Design
+- PLATFORM: Web / Local
+- YEAR: 2026
+- Button: Visit Site ↗
+
+### Project Details
+
+**Vision**
+As part of an AI-focused project program, our primary goal was to design a fully offline, secure, and fast Q&A assistant (RAG). I needed to build a local system that wouldn't leak data, specifically for scenarios where data privacy is paramount.
+
+**Development**
+I built the system using Microsoft Foundry Local and SQLite infrastructure. I managed the entire process from end to end—including vector search, embedding models, and large language model (LLM) integration—putting modern AI architectures into practice.
+
+**Result**
+The result is a high-performance assistant that runs entirely on its own without needing an external internet connection. This project gave me hands-on experience in building an AI-based product from the core outwards.
+
+### Other Elements
+- Warning / Note: Due to the nature of the RAG system, the first question may take a bit longer to answer.
+- Next Project: NEXT PROJECT | Vera Finance ↗
+
+---
+
+## 5. Vera Finance (`project-vera.html`)
 
 ### Project Credits
 - Title: Vera Finance
@@ -283,17 +416,11 @@ I built Vera as a finance assistant that runs on its own. Instead of typing in e
 Vera was the first real product I shipped — it went live on the App Store. The real gain for me was seeing the whole path, from designing an idea to publishing it in a store, and learning first-hand how each decision feeds the next. Running both the direction and the build taught me what it means to think about the whole thing instead of a single piece.
 
 ### Other Elements
-- Slider controls: ← (Previous screen), → (Next screen)
 - Next Project: NEXT PROJECT | IEEE TEDU ↗
 
 ---
 
-## 3. IEEE TEDU (`project-ieee.html`)
-
-### Top Navigation
-- ← Back
-- Ömer Harmankaya
-- Contact
+## 6. IEEE TEDU (`project-ieee.html`)
 
 ### Project Credits
 - Title: IEEE TEDU
@@ -313,17 +440,11 @@ I designed an accessible, mobile-friendly interface with the user experience fir
 The site is in active use and has become the place where the community runs its events and writing from a single spot. For me, the project was practice in taking a design from an idea to something live that people actually use.
 
 ### Other Elements
-- Browser URL: ieee.tedu.edu.tr
 - Next Project: NEXT PROJECT | Roomerang ↗
 
 ---
 
-## 4. Roomerang (`project-roomerang.html`)
-
-### Top Navigation
-- ← Back
-- Ömer Harmankaya
-- Contact
+## 7. Roomerang (`project-roomerang.html`)
 
 ### Project Credits
 - Title: Roomerang
@@ -343,17 +464,11 @@ I took on the design and documentation side. I laid out how the system would loo
 I saw that a piece of software's decisions come before its code. A well-written requirements document quietly settles dozens of arguments before they start. I realized here that getting a team to see the same picture is often worth more than building something on your own.
 
 ### Other Elements
-- Slider controls: ← (Previous screen), → (Next screen)
 - Next Project: NEXT PROJECT | Hospital DBMS ↗
 
 ---
 
-## 5. Hospital DBMS (`project-hospital.html`)
-
-### Top Navigation
-- ← Back
-- Ömer Harmankaya
-- Contact
+## 8. Hospital DBMS (`project-hospital.html`)
 
 ### Project Credits
 - Title: Hospital DBMS
@@ -373,5 +488,4 @@ I designed how the data is held — the database schema. Which tables there woul
 A good schema quietly makes the rest of the project easier; a bad one makes itself felt everywhere. I saw how getting the data model right from the start shapes every query and every screen written later. Designing an invisible layer that carries everything turned out to interest me.
 
 ### Other Elements
-- Slider controls: ← (Previous screen), → (Next screen)
-- Next Project: NEXT PROJECT | Vera Finance ↗
+- Next Project: NEXT PROJECT | EPİAŞ Dashboard ↗

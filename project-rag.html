@@ -120,7 +120,7 @@
         <h1>RAG<br>Assistant</h1>
         <div class="proj-info-group">
           <div class="proj-meta">
-            <div class="col"><div class="label"><span class="tr">ROL</span><span class="en">ROLE</span></div><div class="val"><span class="tr">Yapay Zekâ & Sistem</span><span class="en">AI & System Design</span></div></div>
+            <div class="col"><div class="label"><span class="tr">ROL</span><span class="en">ROLE</span></div><div class="val"><span class="tr">Yapay Zekâ & Sistem</span><span class="en">AI & System</span></div></div>
             <div class="col"><div class="label">PLATFORM</div><div class="val">Web / Local</div></div>
             <div class="col"><div class="label"><span class="tr">YIL</span><span class="en">YEAR</span></div><div class="val">2026</div></div>
           </div>
@@ -135,24 +135,24 @@
       <!-- Text Side -->
       <div class="text-side">
         <div class="proj-grid scroll-reveal reveal text-block">
-          <div><h3 style="color: #ffffff;"><span class="tr">Vizyon</span><span class="en">Vision</span></h3></div>
+          <div><h3 style="color: #ffffff;"><span class="tr">Amaç</span><span class="en">Objective</span></h3></div>
           <div>
-            <p class="tr">Yapay zekâ odaklı proje programı kapsamında, tamamen çevrimdışı çalışabilen, güvenli ve hızlı bir soru-cevap asistanı (RAG) tasarlamak temel hedefimizdi. Veri gizliliğinin ön planda olduğu senaryolar için dışarıya veri sızdırmayan bir yerel sistem kurgulamam gerekiyordu.</p>
-            <p class="en">As part of an AI-focused project program, our primary goal was to design a fully offline, secure, and fast Q&A assistant (RAG). I needed to build a local system that wouldn't leak data, specifically for scenarios where data privacy is paramount.</p>
+            <p class="tr">Belgelerin ve sorguların cihaz dışına çıkmadığı, kapalı ortamda çalışabilen bir soru-cevap asistanı kurmak.</p>
+            <p class="en">To build a Q&A assistant able to run in a closed environment, where neither the documents nor the queries leave the device.</p>
           </div>
         </div>
         <div class="proj-grid scroll-reveal reveal text-block">
-          <div><h3 style="color: #ffffff;"><span class="tr">Geliştirme Süreci</span><span class="en">Development</span></h3></div>
+          <div><h3 style="color: #ffffff;"><span class="tr">Yaklaşım</span><span class="en">Approach</span></h3></div>
           <div>
-            <p class="tr">Sistemi Microsoft Foundry Local ve SQLite altyapısı üzerine inşa ettim. Vektör arama, embedding modelleri ve büyük dil modeli (LLM) entegrasyonu süreçlerinin tamamını uçtan uca kendim yöneterek, modern yapay zeka mimarilerini pratiğe döktüm.</p>
-            <p class="en">I built the system using Microsoft Foundry Local and SQLite infrastructure. I managed the entire process from end to end—including vector search, embedding models, and large language model (LLM) integration—putting modern AI architectures into practice.</p>
+            <p class="tr">Belgeleri parçalara ayırıp embedding'e dönüştürdü ve SQLite üzerinde sakladı. Sorgu geldiğinde ilgili parçaları seçen vektör arama katmanını kurdu; yanıt üretimini Microsoft Foundry Local üzerinde çalışan bir dil modeline bağladı. Erişim, arama ve üretim katmanlarının tamamını yerelde tutarak dış servis bağımlılığını ortadan kaldırdı.</p>
+            <p class="en">Chunked the documents, converted them to embeddings, and stored them in SQLite. Built the vector search layer that selects the relevant chunks for a given query, and connected answer generation to a language model running on Microsoft Foundry Local. Kept retrieval, search, and generation entirely local, removing any external service dependency.</p>
           </div>
         </div>
         <div class="proj-grid scroll-reveal reveal text-block">
           <div><h3 style="color: #ffffff;"><span class="tr">Sonuç</span><span class="en">Result</span></h3></div>
           <div>
-            <p class="tr">Sonuçta, dış internet bağlantısına ihtiyaç duymadan kendi başına çalışabilen, yüksek performanslı bir asistan ortaya çıktı. Bu proje bana yapay zeka tabanlı bir ürünün çekirdekten itibaren nasıl geliştirileceğini uygulamalı olarak öğretti.</p>
-            <p class="en">The result is a high-performance assistant that runs entirely on its own without needing an external internet connection. This project gave me hands-on experience in building an AI-based product from the core outwards.</p>
+            <p class="tr">Tek makinede, dışarıya istek göndermeden çalışan bir asistan ortaya çıktı. Bu sayfadaki demo, aynı sistemin kimlik doğrulamalı bir proxy üzerinden dışarı açılmış hâli.</p>
+            <p class="en">The result was an assistant running on a single machine with no outbound requests. The demo on this page is the same system exposed through an authenticated proxy.</p>
           </div>
         </div>
       </div>
@@ -174,8 +174,8 @@
             <button type="submit" id="vera-qa-submit" style="padding: 10px 15px; background: var(--ink); color: var(--bg); border: none; border-radius: 4px; cursor: pointer; font-weight: 500; font-family: inherit;">Send</button>
           </form>
           <div style="margin-top: 15px; font-size: 0.75rem; color: var(--faint); text-align: center;">
-            <span class="tr">RAG sisteminin yapısı gereği ilk sorunun cevaplanması biraz uzun sürebilir.</span>
-            <span class="en">Due to the nature of the RAG system, the first question may take a bit longer to answer.</span>
+            <span class="tr">İlk soru, modelin belleğe yüklenmesi nedeniyle sonrakilerden yavaş yanıtlanır.</span>
+            <span class="en">The first question is slower than the rest, since the model is being loaded into memory.</span>
           </div>
         </div>
       </div>

@@ -115,24 +115,24 @@
       <!-- Text Side -->
       <div class="text-side">
         <div class="proj-grid scroll-reveal reveal text-block">
-          <div><h3 style="color: #ffffff;"><span class="tr">Vizyon</span><span class="en">Vision</span></h3></div>
+          <div><h3 style="color: #ffffff;"><span class="tr">Amaç</span><span class="en">Objective</span></h3></div>
           <div>
-            <p class="tr">Gerçek bir veri kaynağıyla çalışan, sunucuda canlı yayında kalan ve EPİAŞ'ın kendi resmi yük tahminini geçebilen, ondan tamamen bağımsız bir makine öğrenmesi tahmin modeli kurmak.</p>
-            <p class="en">Building a fully independent machine learning forecasting model that works with a real data source, stays live on a server, and outperforms EPİAŞ's official load forecast.</p>
+            <p class="tr">EPİAŞ'ın yayımladığı resmî yük tahminini girdi olarak kullanmadan saatlik elektrik talebini bağımsız tahmin eden, sürekli yayında kalan bir sistem kurmak.</p>
+            <p class="en">To build a continuously live system that forecasts hourly electricity demand independently, without taking the official EPİAŞ load forecast as an input.</p>
           </div>
         </div>
         <div class="proj-grid scroll-reveal reveal text-block">
-          <div><h3 style="color: #ffffff;"><span class="tr">Geliştirme Süreci</span><span class="en">Development</span></h3></div>
+          <div><h3 style="color: #ffffff;"><span class="tr">Yaklaşım</span><span class="en">Approach</span></h3></div>
           <div>
-            <p class="tr">Proje, SQLite veritabanı, saatlik güncellenen bir Python veri pipeline'ı, FastAPI ile sunulan REST API ve Vite/React frontend kullanılarak geliştirildi. Geriye dönük tahmin üretimi yerine canlı test süreçleriyle "bilgi sızıntısı" (leakage) önlendi ve tatiller için özel bir profil eşleme mekanizması kullanıldı.</p>
-            <p class="en">The project was built using an SQLite database, an hourly updated Python data pipeline, a REST API served with FastAPI, and a Vite/React frontend. Leakage was prevented through live testing rather than backfill generation, and a special profile matching mechanism was used for holidays.</p>
+            <p class="tr">Piyasa ve hava durumu verisini saatlik olarak SQLite'a yazan bir Python veri hattı kurdu. Tahmin katmanını LightGBM modelleriyle geliştirdi, sonuçları FastAPI tabanlı bir REST API üzerinden sundu ve Vite/React arayüzle görselleştirdi. Modeli geriye dönük üretilmiş tahminlerle değil ileriye dönük canlı tahminlerle test ederek veri sızıntısı ihtimalini baştan kapattı. Resmî tatiller için geçmişteki benzer günlerle eşleştirilen ayrı bir profil mekanizması tanımladı.</p>
+            <p class="en">Built a Python pipeline writing market and weather data to SQLite on an hourly schedule. Developed the forecasting layer with LightGBM models, served the results through a FastAPI REST API, and visualised them in a Vite/React frontend. Tested the model on forward-looking live forecasts rather than backfilled ones, ruling out leakage from the start. Defined a separate profile mechanism for public holidays, matched against comparable past days.</p>
           </div>
         </div>
         <div class="proj-grid scroll-reveal reveal text-block">
           <div><h3 style="color: #ffffff;"><span class="tr">Sonuç</span><span class="en">Result</span></h3></div>
           <div>
-            <p class="tr">Tüm tatil ve hafta sonu segmentlerinde de dâhil olmak üzere, resmi tahminlere hiçbir girdi vermeden, resmi tahmini geçen (2.19 genel MAPE oranına sahip) bağımsız bir tahmin sistemi ortaya çıktı.</p>
-            <p class="en">The result is an independent forecasting system (with an overall MAPE of 2.19) that outperforms the official forecast in all holiday and weekend segments, without any input from official forecasts.</p>
+            <p class="tr">Sistem yayına alındı ve saatlik güncellenmeye devam ediyor. Genel MAPE %2,19 ölçüldü; hafta sonu ve tatil segmentlerinde de resmî tahminin altında hata elde edildi.</p>
+            <p class="en">The system went live and continues to update hourly. Overall MAPE was measured at 2.19%, staying below the official forecast's error in the weekend and holiday segments as well.</p>
           </div>
         </div>
       </div>
