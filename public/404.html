@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sayfa Bulunamadı — Ömer Harmankaya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+  :root {
+    --bg: #000000;
+    --ink: #F2F0EA;
+    --muted: #7C7B76;
+    --accent: #C8443A;
+    --pad: clamp(20px, 5vw, 64px);
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-weight: 300;
+  }
+  .notfound-wrap {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad);
+    gap: 24px;
+  }
+  .notfound-code {
+    font-size: clamp(4rem, 14vw, 9rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    margin: 0;
+  }
+  .notfound-msg {
+    color: var(--muted);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    max-width: 480px;
+    margin: 0;
+  }
+  .notfound-home {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+  }
+  .notfound-home:hover { opacity: 0.8; }
+</style>
+</head>
+<body>
+  <div class="notfound-wrap">
+    <p class="notfound-code">404</p>
+    <p class="notfound-msg">Aradığın sayfa bulunamadı. — The page you're looking for doesn't exist.</p>
+    <a href="/" class="notfound-home">Ömer Harmankaya'ya dön / Back to homepage</a>
+  </div>
+</body>
+</html>
